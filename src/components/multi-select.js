@@ -14,6 +14,8 @@ export class MultiSelectTags {
       throw new Error(`Element ${selector} not found`);
     }
     
+    const self = this;
+    
     // Default configuration
     this.config = {
       maxItems: options.maxItems || 5, // Default max 5 items
@@ -51,8 +53,12 @@ export class MultiSelectTags {
         no_results: this.renderNoResults.bind(this)
       },
       
-      // Event handlers
-      onInitialize: this.onInitialize.bind(this),
+      // Event handlers  
+      onInitialize: function() {
+        // Store instance reference when Tom-Select calls this
+        self.instance = this;
+        self.onInitialize();
+      },
       onItemAdd: this.onItemAdd.bind(this),
       onItemRemove: this.onItemRemove.bind(this),
       onChange: this.onChange.bind(this),

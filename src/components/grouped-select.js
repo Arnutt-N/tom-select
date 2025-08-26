@@ -131,6 +131,8 @@ export class GroupedSelect {
       
       // Event handlers
       onInitialize: function() {
+        // Store instance reference when Tom-Select calls this
+        self.tomselect = this;
         self.onInitialize();
       },
       

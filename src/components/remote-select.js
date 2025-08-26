@@ -17,6 +17,8 @@ export class RemoteSelect {
       throw new Error(`Element ${selector} not found`);
     }
     
+    const self = this;
+    
     // Initialize utilities
     this.initializeUtilities(options);
     
@@ -106,7 +108,11 @@ export class RemoteSelect {
       },
       
       // Event handlers
-      onInitialize: this.onInitialize.bind(this),
+      onInitialize: function() {
+        // Store instance reference when Tom-Select calls this
+        self.tomselect = this;
+        self.onInitialize();
+      },
       onFocus: this.onFocus.bind(this),
       onBlur: this.onBlur.bind(this),
       onLoad: this.onLoad.bind(this),

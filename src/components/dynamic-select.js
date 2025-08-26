@@ -138,6 +138,8 @@ export class DynamicSelect {
       
       // Event handlers
       onInitialize: function() {
+        // Store instance reference immediately when Tom-Select calls this
+        self.instance = this;
         self.onInitialize();
       },
       
