@@ -13,13 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize mock API for development
   initializeMockApi();
   
-  // Initialize all Tom-Select components
-  initializeBasicSelect();
-  initializeDynamicSelect();
-  initializeGroupedSelect();
-  initializeMultiSelectTags();
-  initializeRemoteSelect();
-  initializeVirtualSelect();
+  // Add a small delay to ensure mock API is properly set up
+  setTimeout(() => {
+    // Initialize all Tom-Select components
+    initializeBasicSelect();
+    initializeDynamicSelect();
+    initializeGroupedSelect();
+    initializeMultiSelectTags();
+    initializeRemoteSelect();
+    initializeVirtualSelect();
+  }, 100);
 });
 
 function initializeBasicSelect() {
@@ -106,8 +109,8 @@ function initializeBasicSelect() {
     
   } catch (error) {
     console.error('Failed to initialize Tom-Select:', error);
-    // Fallback to native select
-    element.style.display = 'block';
+    // Show error but don't block other components
+    showError('Basic Select initialization failed: ' + error.message);
   }
 }
 
@@ -220,8 +223,8 @@ function initializeDynamicSelect() {
     
   } catch (error) {
     console.error('Failed to initialize Dynamic Tom-Select:', error);
-    // Fallback to native input
-    element.style.display = 'block';
+    // Show error but don't block other components
+    showError('Dynamic Select initialization failed: ' + error.message);
   }
 }
 
@@ -395,8 +398,8 @@ function initializeGroupedSelect() {
     
   } catch (error) {
     console.error('Failed to initialize Grouped Tom-Select:', error);
-    // Fallback to native select
-    element.style.display = 'block';
+    // Show error but don't block other components  
+    showError('Grouped Select initialization failed: ' + error.message);
   }
 }
 
@@ -423,7 +426,9 @@ function initializeMultiSelectTags() {
     });
 
     // Add CSS class for styling
-    multiSelectTags.instance.wrapper.classList.add('multi-tags');
+    if (multiSelectTags.instance && multiSelectTags.instance.wrapper) {
+      multiSelectTags.instance.wrapper.classList.add('multi-tags');
+    }
     
     // Listen for selection changes
     element.addEventListener('multi-select:change', (e) => {
@@ -453,8 +458,8 @@ function initializeMultiSelectTags() {
     
   } catch (error) {
     console.error('Failed to initialize Multi-Select Tags:', error);
-    // Fallback to native select
-    element.style.display = 'block';
+    // Show error but don't block other components
+    showError('Multi-Select Tags initialization failed: ' + error.message);
   }
 }
 
@@ -524,8 +529,8 @@ function initializeRemoteSelect() {
     
   } catch (error) {
     console.error('Failed to initialize Remote Tom-Select:', error);
-    // Fallback to native select
-    element.style.display = 'block';
+    // Show error but don't block other components
+    showError('Remote Select initialization failed: ' + error.message);
   }
 }
 
@@ -852,9 +857,8 @@ function initializeVirtualSelect() {
     
   } catch (error) {
     console.error('Failed to initialize Virtual Select:', error);
-    // Fallback to native select
-    element.style.display = 'block';
-    showVirtualScrollError(error.message);
+    // Show error but don't block other components
+    showError('Virtual Select initialization failed: ' + error.message);
   }
 }
 
@@ -1576,23 +1580,32 @@ function updateTestResult(elementId, passed) {
   }
 }
 
-function showVirtualScrollError(message) {
-  const errorHtml = `
-    <div class="virtual-scroll-error">
-      <svg class="error-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+function showError(message) {
+  console.warn('Component initialization error:', message);
+  
+  // Create temporary error notification
+  const notification = document.createElement('div');
+  notification.className = 'fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow-lg z-50 max-w-md';
+  notification.innerHTML = `
+    <div class="flex items-start">
+      <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
       </svg>
-      <div class="error-title">Virtual Scrolling Error</div>
-      <div class="error-message">${message}</div>
-      <button class="retry-button" onclick="location.reload()">Reload Page</button>
+      <div>
+        <strong class="font-medium">Component Error</strong>
+        <p class="text-sm mt-1">${message}</p>
+      </div>
     </div>
   `;
   
-  const container = document.querySelector('#select-virtual').parentNode;
-  if (container) {
-    container.innerHTML = errorHtml;
-  }
+  document.body.appendChild(notification);
+  
+  // Auto-remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentNode) {
+      notification.parentNode.removeChild(notification);
+    }
+  }, 5000);
 }
 
 // Export for testing if needed

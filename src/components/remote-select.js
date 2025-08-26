@@ -86,7 +86,9 @@ export class RemoteSelect {
       maxOptions: options.maxOptions || 50,
       
       // Plugins
-      plugins: options.plugins || [],
+      plugins: options.plugins || {
+        'remove_button': {}
+      },
       
       // Remote loading function
       load: this.handleLoad.bind(this),
@@ -521,12 +523,19 @@ export class RemoteSelect {
   onInitialize() {
     console.log('Remote select initialized');
     
+    if (!this.tomselect || !this.tomselect.control) {
+      console.warn('Remote Tom-Select instance not properly initialized');
+      return;
+    }
+    
     // Add aria attributes
     this.tomselect.control.setAttribute('aria-label', 'Remote data search');
     this.tomselect.control.setAttribute('aria-describedby', 'remote-description');
     
     // Add loading class
-    this.tomselect.wrapper.classList.add('remote-select');
+    if (this.tomselect.wrapper) {
+      this.tomselect.wrapper.classList.add('remote-select');
+    }
   }
 
   /**

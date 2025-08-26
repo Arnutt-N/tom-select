@@ -90,10 +90,10 @@ export class VirtualSelect {
     
     // Event handlers
     this.boundHandlers = {
-      resize: this.handleResize.bind(this),
-      keydown: this.handleKeydown.bind(this),
-      focus: this.handleFocus.bind(this),
-      blur: this.handleBlur.bind(this)
+      resize: typeof this.handleResize === 'function' ? this.handleResize.bind(this) : () => {},
+      keydown: typeof this.handleKeydown === 'function' ? this.handleKeydown.bind(this) : () => {},
+      focus: typeof this.handleFocus === 'function' ? this.handleFocus.bind(this) : () => {},
+      blur: typeof this.handleBlur === 'function' ? this.handleBlur.bind(this) : () => {}
     };
     
     // Initialize components
@@ -245,14 +245,22 @@ export class VirtualSelect {
         offset: 0
       });
       
+      // Validate results structure
+      if (!results || typeof results !== 'object') {
+        throw new Error('Invalid response from data provider');
+      }
+      
+      const items = results.items || [];
+      const totalCount = results.totalCount || items.length;
+      
       // Store current data reference
-      this.currentData = results.items;
+      this.currentData = items;
       
       // Set total items in virtual core
-      this.virtualCore.setTotalItems(results.totalCount);
+      this.virtualCore.setTotalItems(totalCount);
       
       // Execute callback with results
-      callback(results.items);
+      callback(items);
       
       // Start virtual rendering after initial load
       if (!this.initialized) {
@@ -260,7 +268,7 @@ export class VirtualSelect {
         this.startVirtualRendering();
       }
       
-      console.log(`[VirtualSelect] Loaded ${results.items.length} items, total: ${results.totalCount}`);
+      console.log(`[VirtualSelect] Loaded ${items.length} items, total: ${totalCount}`);
       
     } catch (error) {
       console.error('[VirtualSelect] Data loading error:', error);
@@ -412,7 +420,7 @@ export class VirtualSelect {
    * Render virtual items in viewport
    */
   renderVirtualItems() {
-    if (!this.virtualCore.content || !this.currentData.length) return;
+    if (!this.virtualCore || !this.virtualCore.content || !this.currentData || !this.currentData.length) return;
     
     const renderStart = performance.now();
     const itemsToRender = this.virtualCore.getItemsToRender();
@@ -803,18 +811,23 @@ export class VirtualSelect {
    * Update performance statistics
    */
   updatePerformanceStats() {
+    // Ensure data structures are initialized
+    if (!this.currentData || !this.visibleItems || !this.itemCache) {
+      return; // Skip stats update if components not ready
+    }
+    
     // Memory usage estimation
+    const cacheStats = this.itemCache?.getStats() || { totalElements: 0 };
     const estimatedMemory = (
       this.currentData.length * 0.5 + // 0.5KB per data item
       this.visibleItems.size * 2 + // 2KB per rendered element
-      this.itemCache.getStats().totalElements * 1 // 1KB per cached element
+      cacheStats.totalElements * 1 // 1KB per cached element
     ) * 1024; // Convert to bytes
     
     this.performance.memoryUsage = estimatedMemory;
     
     // Get performance stats from components
     const scrollStats = this.scrollManager?.getPerformanceStats() || {};
-    const cacheStats = this.itemCache?.getStats() || {};
     const virtualStats = this.virtualCore?.getStats() || {};
     
     // Update FPS from scroll manager

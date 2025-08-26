@@ -143,6 +143,11 @@ export class MultiSelectTags {
    * Initialize component with ARIA attributes and mobile detection
    */
   onInitialize() {
+    if (!this.instance || !this.instance.control) {
+      console.warn('Multi-Select instance not properly initialized');
+      return;
+    }
+    
     // ARIA attributes for accessibility
     this.instance.control.setAttribute('role', 'listbox');
     this.instance.control.setAttribute('aria-multiselectable', 'true');
@@ -150,7 +155,7 @@ export class MultiSelectTags {
     this.instance.control.setAttribute('aria-describedby', 'tags-description');
     
     // Mobile optimizations
-    if ('ontouchstart' in window) {
+    if ('ontouchstart' in window && this.instance.wrapper) {
       this.instance.wrapper.classList.add('touch-device');
     }
     

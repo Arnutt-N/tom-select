@@ -45,7 +45,10 @@ export class DynamicSelect {
       
       // Multi-select settings
       maxItems: options.maxItems || null,
-      plugins: options.plugins || ['remove_button', 'restore_on_backspace'],
+      plugins: options.plugins || {
+        'remove_button': {},
+        'restore_on_backspace': {}
+      },
       
       // Search and behavior
       searchField: ['text'],
@@ -421,6 +424,11 @@ export class DynamicSelect {
   
   // Event handlers
   onInitialize() {
+    if (!this.instance || !this.instance.control) {
+      console.warn('Dynamic Tom-Select instance not properly initialized');
+      return;
+    }
+    
     this.instance.control.setAttribute('role', 'combobox');
     this.instance.control.setAttribute('aria-label', 'Tags input with creation');
     this.instance.control.setAttribute('aria-describedby', this.element.id + '-description');

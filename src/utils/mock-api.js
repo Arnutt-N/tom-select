@@ -1,6 +1,7 @@
 /**
- * Mock API Service for Testing Remote Data Loading
+ * Mock API Service for Testing Remote Data Loading  
  * Simulates backend API endpoints with realistic responses and delays
+ * Includes proper server setup for development mode
  */
 
 // Mock database with extended data
@@ -462,7 +463,7 @@ export class MockApiService {
 
       // Build response
       const response = {
-        data: paginatedData,
+        items: paginatedData,  // Changed from 'data' to 'items' for Tom-Select compatibility
         pagination: {
           page: page,
           limit: limit,
@@ -625,10 +626,17 @@ export function setupMockApiInterceptor(baseURL = '/api') {
   window.fetch = async function(input, init = {}) {
     const url = typeof input === 'string' ? input : input.url;
     
-    // Check if this is an API call we should mock
-    if (url.startsWith(baseURL)) {
-      const apiPath = url.replace(baseURL, '').replace(/^\/+/, '');
-      const urlParams = new URLSearchParams(url.split('?')[1] || '');
+    // Check if this is an API call we should mock (handle both relative and absolute URLs)
+    if (url.includes(baseURL)) {
+      console.log(`[MockAPI] Intercepting: ${url}`);
+      
+      // Extract API path from URL (handle both relative and absolute URLs)
+      const urlObj = new URL(url, window.location.origin);
+      const pathname = urlObj.pathname;
+      const apiPath = pathname.replace(baseURL, '').replace(/^\/+/, '');
+      const urlParams = urlObj.searchParams;
+      
+      console.log(`[MockAPI] API Path: ${apiPath}`);
       
       try {
         let mockResponse;
@@ -715,5 +723,6 @@ export function initializeMockApi() {
   if (import.meta.env.DEV) {
     setupMockApiInterceptor('/api');
     console.log('[MockAPI] Mock API initialized for development');
+    console.log('[MockAPI] Will intercept URLs containing "/api"');
   }
 }

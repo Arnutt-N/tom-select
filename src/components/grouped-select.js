@@ -102,7 +102,9 @@ export class GroupedSelect {
       maxOptions: this.options.maxOptions,
       
       // Plugins
-      plugins: ['remove_button'],
+      plugins: {
+        'remove_button': {}
+      },
       
       // Custom rendering for groups
       render: {
@@ -349,6 +351,11 @@ export class GroupedSelect {
   // Event handlers
   
   onInitialize() {
+    if (!this.tomselect || !this.tomselect.control) {
+      console.warn('Grouped Tom-Select instance not properly initialized');
+      return;
+    }
+    
     // Set ARIA attributes for accessibility
     this.tomselect.control.setAttribute('role', 'tree');
     this.tomselect.control.setAttribute('aria-multiselectable', 'true');

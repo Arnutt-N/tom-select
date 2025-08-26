@@ -238,7 +238,7 @@ kbd {
 .ts-dropdown .optgroup-header {
   @apply sticky top-0 z-20 bg-gray-100 border-b border-gray-200;
   @apply flex items-center justify-between p-3 cursor-pointer;
-  @apply hover:bg-gray-150 transition-colors duration-200;
+  @apply hover:bg-gray-200 transition-colors duration-200;
   @apply font-medium text-gray-800;
 }
 
@@ -1080,10 +1080,28 @@ kbd {
 
 .ts-dropdown.virtual-dropdown .virtual-scroll-container {
   @apply relative h-full overflow-y-auto overflow-x-hidden;
-  @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400;
+  /* Native scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) transparent;
   /* Hardware acceleration for smooth scrolling */
   will-change: scroll-position;
   transform: translateZ(0);
+}
+
+.ts-dropdown.virtual-dropdown .virtual-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ts-dropdown.virtual-dropdown .virtual-scroll-container::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.ts-dropdown.virtual-dropdown .virtual-scroll-container::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+.ts-dropdown.virtual-dropdown .virtual-scroll-container::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
 }
 
 /* Virtual content container with relative positioning */
@@ -1161,8 +1179,9 @@ kbd {
   @apply transition-opacity duration-200;
 }
 
-.virtual-loading.hidden {
-  @apply opacity-0 pointer-events-none;
+.virtual-loading[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .virtual-loading .loading-spinner {

@@ -1,10 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Read(/D:\\d D:\\02 genAI/**)"
+      "Bash(powershell:*)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "D:\\"
+    ]
   },
   "customInstructions": {
     "projectType": "frontend",
