@@ -1,0 +1,534 @@
+{
+  "version": "1.0",
+  "description": "Sample hierarchical data for Tom-Select grouped options",
+  "lastUpdated": "2025-01-26",
+  "groups": [
+    {
+      "label": "Programming Languages",
+      "expanded": false,
+      "level": 1,
+      "children": [
+        {
+          "label": "Frontend Languages",
+          "level": 2,
+          "options": [
+            {
+              "value": "javascript",
+              "text": "JavaScript",
+              "icon": "🟨",
+              "badge": "Popular",
+              "keywords": ["js", "frontend", "web", "client"]
+            },
+            {
+              "value": "typescript",
+              "text": "TypeScript",
+              "icon": "🔵",
+              "badge": "Type-Safe",
+              "keywords": ["ts", "typed", "microsoft", "frontend"]
+            },
+            {
+              "value": "html",
+              "text": "HTML",
+              "icon": "🧡",
+              "keywords": ["markup", "web", "structure"]
+            },
+            {
+              "value": "css",
+              "text": "CSS",
+              "icon": "🎨",
+              "keywords": ["styles", "design", "frontend"]
+            },
+            {
+              "value": "sass",
+              "text": "Sass/SCSS",
+              "icon": "💎",
+              "keywords": ["preprocessor", "css", "styles"]
+            }
+          ]
+        },
+        {
+          "label": "Backend Languages",
+          "level": 2,
+          "options": [
+            {
+              "value": "python",
+              "text": "Python",
+              "icon": "🐍",
+              "badge": "Versatile",
+              "keywords": ["backend", "data", "ai", "scripting"]
+            },
+            {
+              "value": "java",
+              "text": "Java",
+              "icon": "☕",
+              "badge": "Enterprise",
+              "keywords": ["backend", "enterprise", "jvm"]
+            },
+            {
+              "value": "csharp",
+              "text": "C#",
+              "icon": "💜",
+              "keywords": ["dotnet", "microsoft", "backend"]
+            },
+            {
+              "value": "php",
+              "text": "PHP",
+              "icon": "🐘",
+              "keywords": ["web", "server", "backend"]
+            },
+            {
+              "value": "ruby",
+              "text": "Ruby",
+              "icon": "💎",
+              "keywords": ["rails", "backend", "scripting"]
+            },
+            {
+              "value": "go",
+              "text": "Go",
+              "icon": "🐹",
+              "keywords": ["golang", "google", "concurrent"]
+            },
+            {
+              "value": "rust",
+              "text": "Rust",
+              "icon": "⚙️",
+              "keywords": ["systems", "memory", "safe"]
+            }
+          ]
+        },
+        {
+          "label": "Mobile Languages",
+          "level": 2,
+          "options": [
+            {
+              "value": "swift",
+              "text": "Swift",
+              "icon": "🍎",
+              "keywords": ["ios", "apple", "mobile"]
+            },
+            {
+              "value": "kotlin",
+              "text": "Kotlin",
+              "icon": "🤖",
+              "keywords": ["android", "mobile", "jvm"]
+            },
+            {
+              "value": "dart",
+              "text": "Dart",
+              "icon": "🎯",
+              "keywords": ["flutter", "google", "mobile"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Frameworks & Libraries",
+      "expanded": false,
+      "level": 1,
+      "children": [
+        {
+          "label": "JavaScript Frameworks",
+          "level": 2,
+          "options": [
+            {
+              "value": "react",
+              "text": "React",
+              "icon": "⚛️",
+              "badge": "Popular",
+              "keywords": ["facebook", "components", "jsx"]
+            },
+            {
+              "value": "vue",
+              "text": "Vue.js",
+              "icon": "💚",
+              "keywords": ["progressive", "frontend", "spa"]
+            },
+            {
+              "value": "angular",
+              "text": "Angular",
+              "icon": "🅰️",
+              "keywords": ["google", "typescript", "spa"]
+            },
+            {
+              "value": "svelte",
+              "text": "Svelte",
+              "icon": "🧡",
+              "keywords": ["compiler", "lightweight", "reactive"]
+            },
+            {
+              "value": "nextjs",
+              "text": "Next.js",
+              "icon": "▲",
+              "keywords": ["react", "ssr", "vercel"]
+            },
+            {
+              "value": "nuxtjs",
+              "text": "Nuxt.js",
+              "icon": "💚",
+              "keywords": ["vue", "ssr", "static"]
+            }
+          ]
+        },
+        {
+          "label": "CSS Frameworks",
+          "level": 2,
+          "options": [
+            {
+              "value": "tailwind",
+              "text": "Tailwind CSS",
+              "icon": "💨",
+              "badge": "Utility",
+              "keywords": ["utility", "classes", "responsive"]
+            },
+            {
+              "value": "bootstrap",
+              "text": "Bootstrap",
+              "icon": "🅱️",
+              "keywords": ["components", "responsive", "grid"]
+            },
+            {
+              "value": "bulma",
+              "text": "Bulma",
+              "icon": "🌟",
+              "keywords": ["flexbox", "modern", "css"]
+            },
+            {
+              "value": "chakra",
+              "text": "Chakra UI",
+              "icon": "⚡",
+              "keywords": ["react", "components", "accessible"]
+            },
+            {
+              "value": "material",
+              "text": "Material-UI",
+              "icon": "📐",
+              "keywords": ["google", "react", "design"]
+            }
+          ]
+        },
+        {
+          "label": "Backend Frameworks",
+          "level": 2,
+          "options": [
+            {
+              "value": "express",
+              "text": "Express.js",
+              "icon": "🚂",
+              "keywords": ["node", "minimal", "web"]
+            },
+            {
+              "value": "fastify",
+              "text": "Fastify",
+              "icon": "⚡",
+              "keywords": ["node", "fast", "plugins"]
+            },
+            {
+              "value": "django",
+              "text": "Django",
+              "icon": "🐍",
+              "keywords": ["python", "orm", "admin"]
+            },
+            {
+              "value": "flask",
+              "text": "Flask",
+              "icon": "🌶️",
+              "keywords": ["python", "micro", "wsgi"]
+            },
+            {
+              "value": "laravel",
+              "text": "Laravel",
+              "icon": "🎭",
+              "keywords": ["php", "eloquent", "artisan"]
+            },
+            {
+              "value": "rails",
+              "text": "Ruby on Rails",
+              "icon": "💎",
+              "keywords": ["ruby", "convention", "mvc"]
+            },
+            {
+              "value": "spring",
+              "text": "Spring Boot",
+              "icon": "🌿",
+              "keywords": ["java", "enterprise", "microservices"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Development Tools",
+      "expanded": false,
+      "level": 1,
+      "children": [
+        {
+          "label": "Version Control",
+          "level": 2,
+          "options": [
+            {
+              "value": "git",
+              "text": "Git",
+              "icon": "📝",
+              "badge": "Essential",
+              "keywords": ["version", "control", "distributed"]
+            },
+            {
+              "value": "github",
+              "text": "GitHub",
+              "icon": "🐙",
+              "keywords": ["hosting", "collaboration", "microsoft"]
+            },
+            {
+              "value": "gitlab",
+              "text": "GitLab",
+              "icon": "🦊",
+              "keywords": ["devops", "ci", "self-hosted"]
+            },
+            {
+              "value": "bitbucket",
+              "text": "Bitbucket",
+              "icon": "🪣",
+              "keywords": ["atlassian", "git", "mercurial"]
+            }
+          ]
+        },
+        {
+          "label": "Build Tools",
+          "level": 2,
+          "options": [
+            {
+              "value": "webpack",
+              "text": "Webpack",
+              "icon": "📦",
+              "keywords": ["bundler", "modules", "plugins"]
+            },
+            {
+              "value": "vite",
+              "text": "Vite",
+              "icon": "⚡",
+              "badge": "Fast",
+              "keywords": ["build", "dev", "esm"]
+            },
+            {
+              "value": "parcel",
+              "text": "Parcel",
+              "icon": "📮",
+              "keywords": ["zero", "config", "bundler"]
+            },
+            {
+              "value": "rollup",
+              "text": "Rollup",
+              "icon": "🗞️",
+              "keywords": ["esm", "tree", "shaking"]
+            },
+            {
+              "value": "esbuild",
+              "text": "ESBuild",
+              "icon": "⚡",
+              "keywords": ["fast", "go", "bundler"]
+            }
+          ]
+        },
+        {
+          "label": "Testing Tools",
+          "level": 2,
+          "options": [
+            {
+              "value": "jest",
+              "text": "Jest",
+              "icon": "🃏",
+              "keywords": ["testing", "facebook", "mocking"]
+            },
+            {
+              "value": "cypress",
+              "text": "Cypress",
+              "icon": "🌲",
+              "keywords": ["e2e", "testing", "browser"]
+            },
+            {
+              "value": "playwright",
+              "text": "Playwright",
+              "icon": "🎭",
+              "keywords": ["e2e", "microsoft", "cross-browser"]
+            },
+            {
+              "value": "vitest",
+              "text": "Vitest",
+              "icon": "⚡",
+              "keywords": ["vite", "testing", "fast"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "DevOps & Infrastructure",
+      "expanded": false,
+      "level": 1,
+      "children": [
+        {
+          "label": "Containerization",
+          "level": 2,
+          "options": [
+            {
+              "value": "docker",
+              "text": "Docker",
+              "icon": "🐳",
+              "badge": "Popular",
+              "keywords": ["container", "image", "deployment"]
+            },
+            {
+              "value": "kubernetes",
+              "text": "Kubernetes",
+              "icon": "☸️",
+              "keywords": ["orchestration", "k8s", "scaling"]
+            },
+            {
+              "value": "podman",
+              "text": "Podman",
+              "icon": "🦭",
+              "keywords": ["rootless", "docker", "alternative"]
+            }
+          ]
+        },
+        {
+          "label": "Cloud Platforms",
+          "level": 2,
+          "options": [
+            {
+              "value": "aws",
+              "text": "AWS",
+              "icon": "☁️",
+              "badge": "Leader",
+              "keywords": ["amazon", "cloud", "services"]
+            },
+            {
+              "value": "azure",
+              "text": "Microsoft Azure",
+              "icon": "🌐",
+              "keywords": ["microsoft", "cloud", "enterprise"]
+            },
+            {
+              "value": "gcp",
+              "text": "Google Cloud",
+              "icon": "☁️",
+              "keywords": ["google", "gcp", "ai"]
+            },
+            {
+              "value": "vercel",
+              "text": "Vercel",
+              "icon": "▲",
+              "keywords": ["frontend", "jamstack", "edge"]
+            },
+            {
+              "value": "netlify",
+              "text": "Netlify",
+              "icon": "🌐",
+              "keywords": ["jamstack", "static", "cdn"]
+            }
+          ]
+        },
+        {
+          "label": "CI/CD Tools",
+          "level": 2,
+          "options": [
+            {
+              "value": "github-actions",
+              "text": "GitHub Actions",
+              "icon": "🤖",
+              "keywords": ["ci", "cd", "workflows"]
+            },
+            {
+              "value": "jenkins",
+              "text": "Jenkins",
+              "icon": "👨‍🔧",
+              "keywords": ["automation", "pipeline", "java"]
+            },
+            {
+              "value": "gitlab-ci",
+              "text": "GitLab CI",
+              "icon": "🔄",
+              "keywords": ["gitlab", "pipeline", "yaml"]
+            },
+            {
+              "value": "circleci",
+              "text": "CircleCI",
+              "icon": "⭕",
+              "keywords": ["continuous", "integration", "docker"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Databases",
+      "expanded": false,
+      "level": 1,
+      "children": [
+        {
+          "label": "Relational Databases",
+          "level": 2,
+          "options": [
+            {
+              "value": "postgresql",
+              "text": "PostgreSQL",
+              "icon": "🐘",
+              "badge": "Advanced",
+              "keywords": ["postgres", "sql", "relational"]
+            },
+            {
+              "value": "mysql",
+              "text": "MySQL",
+              "icon": "🐬",
+              "keywords": ["oracle", "sql", "web"]
+            },
+            {
+              "value": "sqlite",
+              "text": "SQLite",
+              "icon": "🪶",
+              "keywords": ["embedded", "lightweight", "file"]
+            },
+            {
+              "value": "mssql",
+              "text": "SQL Server",
+              "icon": "🗃️",
+              "keywords": ["microsoft", "enterprise", "tsql"]
+            }
+          ]
+        },
+        {
+          "label": "NoSQL Databases",
+          "level": 2,
+          "options": [
+            {
+              "value": "mongodb",
+              "text": "MongoDB",
+              "icon": "🍃",
+              "badge": "Document",
+              "keywords": ["document", "json", "nosql"]
+            },
+            {
+              "value": "redis",
+              "text": "Redis",
+              "icon": "🔴",
+              "keywords": ["cache", "memory", "key-value"]
+            },
+            {
+              "value": "elasticsearch",
+              "text": "Elasticsearch",
+              "icon": "🔍",
+              "keywords": ["search", "analytics", "lucene"]
+            },
+            {
+              "value": "cassandra",
+              "text": "Cassandra",
+              "icon": "🏛️",
+              "keywords": ["distributed", "column", "apache"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "version": "1.0",
+  "description": "Fallback data for offline mode",
+  "lastUpdated": "2025-01-26",
+  "items": [
+    {
+      "id": "1",
+      "name": "JavaScript",
+      "description": "High-level, interpreted programming language",
+      "avatar": "https://via.placeholder.com/32/f7df1e/000000?text=JS",
+      "language": "JavaScript",
+      "stars": 95000,
+      "updated": "2025-01-26",
+      "tags": ["web", "frontend", "backend", "fullstack"],
+      "cached": true
+    },
+    {
+      "id": "2",
+      "name": "TypeScript",
+      "description": "Typed superset of JavaScript that compiles to plain JavaScript",
+      "avatar": "https://via.placeholder.com/32/007acc/ffffff?text=TS",
+      "language": "TypeScript",
+      "stars": 88000,
+      "updated": "2025-01-26",
+      "tags": ["web", "frontend", "backend", "typed"],
+      "cached": true
+    },
+    {
+      "id": "3",
+      "name": "React",
+      "description": "A JavaScript library for building user interfaces",
+      "avatar": "https://via.placeholder.com/32/61dafb/000000?text=R",
+      "language": "JavaScript",
+      "stars": 210000,
+      "updated": "2025-01-26",
+      "tags": ["web", "frontend", "ui", "library"],
+      "cached": true
+    },
+    {
+      "id": "4",
+      "name": "Vue.js",
+      "description": "The Progressive JavaScript Framework",
+      "avatar": "https://via.placeholder.com/32/4fc08d/ffffff?text=V",
+      "language": "JavaScript",
+      "stars": 205000,
+      "updated": "2025-01-26",
+      "tags": ["web", "frontend", "ui", "framework"],
+      "cached": true
+    },
+    {
+      "id": "5",
+      "name": "Node.js",
+      "description": "JavaScript runtime built on Chrome's V8 JavaScript engine",
+      "avatar": "https://via.placeholder.com/32/339933/ffffff?text=N",
+      "language": "JavaScript",
+      "stars": 92000,
+      "updated": "2025-01-26",
+      "tags": ["backend", "runtime", "server"],
+      "cached": true
+    },
+    {
+      "id": "6",
+      "name": "Python",
+      "description": "High-level programming language for general-purpose programming",
+      "avatar": "https://via.placeholder.com/32/3776ab/ffffff?text=PY",
+      "language": "Python",
+      "stars": 180000,
+      "updated": "2025-01-26",
+      "tags": ["backend", "data-science", "ai", "scripting"],
+      "cached": true
+    },
+    {
+      "id": "7",
+      "name": "Django",
+      "description": "High-level Python web framework",
+      "avatar": "https://via.placeholder.com/32/092e20/ffffff?text=DJ",
+      "language": "Python",
+      "stars": 72000,
+      "updated": "2025-01-26",
+      "tags": ["backend", "framework", "python", "web"],
+      "cached": true
+    },
+    {
+      "id": "8",
+      "name": "Express.js",
+      "description": "Fast, unopinionated, minimalist web framework for Node.js",
+      "avatar": "https://via.placeholder.com/32/000000/ffffff?text=EX",
+      "language": "JavaScript",
+      "stars": 61000,
+      "updated": "2025-01-26",
+      "tags": ["backend", "framework", "nodejs", "web"],
+      "cached": true
+    },
+    {
+      "id": "9",
+      "name": "Docker",
+      "description": "Platform for developing, shipping, and running applications",
+      "avatar": "https://via.placeholder.com/32/2496ed/ffffff?text=D",
+      "language": "Go",
+      "stars": 67000,
+      "updated": "2025-01-26",
+      "tags": ["devops", "containerization", "deployment"],
+      "cached": true
+    },
+    {
+      "id": "10",
+      "name": "Kubernetes",
+      "description": "Open-source container orchestration platform",
+      "avatar": "https://via.placeholder.com/32/326ce5/ffffff?text=K8",
+      "language": "Go",
+      "stars": 100000,
+      "updated": "2025-01-26",
+      "tags": ["devops", "orchestration", "containers"],
+      "cached": true
+    },
+    {
+      "id": "11",
+      "name": "PostgreSQL",
+      "description": "Advanced open-source relational database",
+      "avatar": "https://via.placeholder.com/32/336791/ffffff?text=PG",
+      "language": "C",
+      "stars": 14000,
+      "updated": "2025-01-26",
+      "tags": ["database", "sql", "relational"],
+      "cached": true
+    },
+    {
+      "id": "12",
+      "name": "MongoDB",
+      "description": "Document-oriented NoSQL database",
+      "avatar": "https://via.placeholder.com/32/47a248/ffffff?text=MG",
+      "language": "C++",
+      "stars": 24000,
+      "updated": "2025-01-26",
+      "tags": ["database", "nosql", "document"],
+      "cached": true
+    },
+    {
+      "id": "13",
+      "name": "Redis",
+      "description": "In-memory data structure store",
+      "avatar": "https://via.placeholder.com/32/dc382d/ffffff?text=RD",
+      "language": "C",
+      "stars": 60000,
+      "updated": "2025-01-26",
+      "tags": ["database", "cache", "nosql"],
+      "cached": true
+    },
+    {
+      "id": "14",
+      "name": "GraphQL",
+      "description": "Query language for APIs",
+      "avatar": "https://via.placeholder.com/32/e10098/ffffff?text=GQ",
+      "language": "JavaScript",
+      "stars": 20000,
+      "updated": "2025-01-26",
+      "tags": ["api", "query", "web"],
+      "cached": true
+    },
+    {
+      "id": "15",
+      "name": "Webpack",
+      "description": "Static module bundler for JavaScript applications",
+      "avatar": "https://via.placeholder.com/32/8dd6f9/000000?text=WP",
+      "language": "JavaScript",
+      "stars": 63000,
+      "updated": "2025-01-26",
+      "tags": ["build-tool", "bundler", "frontend"],
+      "cached": true
+    },
+    {
+      "id": "16",
+      "name": "Vite",
+      "description": "Next generation frontend tooling",
+      "avatar": "https://via.placeholder.com/32/646cff/ffffff?text=V",
+      "language": "JavaScript",
+      "stars": 60000,
+      "updated": "2025-01-26",
+      "tags": ["build-tool", "bundler", "frontend", "fast"],
+      "cached": true
+    },
+    {
+      "id": "17",
+      "name": "Tailwind CSS",
+      "description": "Utility-first CSS framework",
+      "avatar": "https://via.placeholder.com/32/38bdf8/000000?text=TW",
+      "language": "CSS",
+      "stars": 73000,
+      "updated": "2025-01-26",
+      "tags": ["css", "framework", "frontend", "utility"],
+      "cached": true
+    },
+    {
+      "id": "18",
+      "name": "Next.js",
+      "description": "React framework for production",
+      "avatar": "https://via.placeholder.com/32/000000/ffffff?text=NX",
+      "language": "JavaScript",
+      "stars": 110000,
+      "updated": "2025-01-26",
+      "tags": ["react", "framework", "fullstack", "ssr"],
+      "cached": true
+    },
+    {
+      "id": "19",
+      "name": "Svelte",
+      "description": "Cybernetically enhanced web apps",
+      "avatar": "https://via.placeholder.com/32/ff3e00/ffffff?text=SV",
+      "language": "JavaScript",
+      "stars": 72000,
+      "updated": "2025-01-26",
+      "tags": ["frontend", "framework", "compiler"],
+      "cached": true
+    },
+    {
+      "id": "20",
+      "name": "Go",
+      "description": "Open source programming language",
+      "avatar": "https://via.placeholder.com/32/00add8/000000?text=GO",
+      "language": "Go",
+      "stars": 115000,
+      "updated": "2025-01-26",
+      "tags": ["backend", "systems", "concurrent"],
+      "cached": true
+    }
+  ]
+}

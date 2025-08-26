@@ -1,0 +1,1707 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tom-Select Custom Overrides */
+.ts-wrapper {
+  @apply relative;
+}
+
+.ts-control {
+  @apply bg-white border border-gray-300 rounded-md shadow-sm px-3 py-2;
+  @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply transition duration-150 ease-in-out;
+}
+
+.ts-control > .item {
+  @apply text-gray-900;
+}
+
+.ts-dropdown {
+  @apply absolute z-50 w-full bg-white shadow-lg border border-gray-200 rounded-md mt-1;
+  @apply max-h-60 overflow-auto;
+}
+
+.ts-dropdown .option {
+  @apply cursor-pointer select-none relative py-2 px-3;
+  @apply hover:bg-blue-50 hover:text-blue-900;
+}
+
+.ts-dropdown .option.active {
+  @apply bg-blue-100 text-blue-900;
+}
+
+.ts-dropdown .no-results {
+  @apply text-gray-500 italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .ts-dropdown {
+    @apply max-h-40;
+  }
+}
+
+/* Dynamic Creation Styles */
+
+/* Create option prompt styling */
+.create-option {
+  @apply transition-all duration-200;
+}
+
+.create-option:hover {
+  @apply bg-green-100 border-green-600;
+}
+
+/* Created options styling */
+.ts-wrapper .ts-control .item[data-created="true"] {
+  @apply bg-green-100 text-green-800;
+}
+
+/* Multi-select wrapper for dynamic creation */
+.ts-wrapper.multi .ts-control {
+  @apply flex flex-wrap gap-1 min-h-[42px] p-2;
+  @apply focus-within:ring-2 focus-within:ring-green-500;
+}
+
+.ts-wrapper.multi .ts-control > .item {
+  @apply inline-flex items-center;
+  @apply rounded-md px-2 py-1;
+  @apply text-sm font-medium;
+  @apply transition-all duration-150;
+  @apply mr-1 mb-1;
+}
+
+/* Remove button styles */
+.ts-wrapper.multi .item .remove {
+  @apply ml-2 text-current opacity-75 hover:opacity-100;
+  @apply cursor-pointer font-bold;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-current;
+  @apply rounded;
+}
+
+/* Edit button styles */
+.ts-wrapper .item-edit-btn {
+  @apply ml-1 text-current opacity-75 hover:opacity-100;
+  @apply cursor-pointer;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-current;
+  @apply rounded;
+}
+
+/* Notification system */
+.notification {
+  @apply transform transition-all duration-300 ease-in-out;
+  @apply translate-x-0 opacity-100;
+}
+
+.notification.notification-info {
+  @apply bg-blue-100 text-blue-800 border-blue-200;
+}
+
+.notification.notification-success {
+  @apply bg-green-100 text-green-800 border-green-200;
+}
+
+.notification.notification-warning {
+  @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+}
+
+.notification.notification-error {
+  @apply bg-red-100 text-red-800 border-red-200;
+}
+
+/* Control buttons */
+.control-buttons {
+  @apply flex gap-2;
+}
+
+.control-buttons button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.control-buttons button:not(:disabled):hover {
+  @apply shadow-sm;
+}
+
+/* Keyboard shortcuts display */
+kbd {
+  @apply inline-flex items-center justify-center;
+  @apply min-w-[1.5rem] h-6;
+  @apply font-mono text-xs font-medium;
+  @apply border border-gray-300 rounded;
+  @apply bg-white shadow-sm;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Validation feedback styles */
+.ts-dropdown .validation-error {
+  @apply text-red-600 bg-red-50 border-l-4 border-red-500;
+}
+
+.ts-dropdown .validation-success {
+  @apply text-green-600 bg-green-50 border-l-4 border-green-500;
+}
+
+/* Created counter styling */
+#created-count {
+  @apply font-medium;
+}
+
+/* Import/Export button animations */
+#export-btn:hover, #import-btn:hover {
+  @apply transform scale-105;
+}
+
+/* Focus enhancements for accessibility */
+.ts-wrapper.focus .ts-control {
+  @apply ring-2 ring-blue-500 ring-offset-1;
+}
+
+.ts-wrapper.multi.focus .ts-control {
+  @apply ring-green-500;
+}
+
+/* Loading states (if needed) */
+.ts-wrapper.loading .ts-control::after {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2;
+  content: "⏳";
+  @apply text-sm opacity-50;
+}
+
+/* Mobile optimizations for dynamic creation */
+@media (max-width: 640px) {
+  .control-buttons {
+    @apply flex-col gap-1;
+  }
+  
+  .control-buttons button {
+    @apply text-xs px-2 py-1;
+  }
+  
+  .ts-wrapper.multi .ts-control {
+    @apply min-h-[48px]; /* Larger touch targets */
+  }
+  
+  .ts-wrapper.multi .ts-control > .item {
+    @apply text-xs px-2 py-1;
+    @apply min-h-[28px] min-w-[50px];
+  }
+  
+  .notification {
+    @apply right-2 top-2 left-2;
+    @apply max-w-none;
+  }
+  
+  .create-option svg {
+    @apply w-4 h-4;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ts-control {
+    @apply border-2 border-black;
+  }
+  
+  .ts-dropdown {
+    @apply border-2 border-black;
+  }
+  
+  .notification {
+    @apply border-2;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .notification,
+  .create-option,
+  .ts-wrapper .ts-control > .item {
+    @apply transition-none;
+  }
+  
+  #export-btn:hover, #import-btn:hover {
+    @apply transform-none;
+  }
+}
+
+/* Grouped Options Styles */
+
+/* Group headers with sticky positioning and interactions */
+.ts-dropdown .optgroup-header {
+  @apply sticky top-0 z-20 bg-gray-100 border-b border-gray-200;
+  @apply flex items-center justify-between p-3 cursor-pointer;
+  @apply hover:bg-gray-150 transition-colors duration-200;
+  @apply font-medium text-gray-800;
+}
+
+.ts-dropdown .optgroup-header:focus {
+  @apply bg-gray-200 ring-2 ring-blue-500 ring-inset outline-none;
+}
+
+/* Expand/collapse toggle button */
+.ts-dropdown .expand-toggle {
+  @apply p-1 rounded hover:bg-gray-200 transition-all duration-200;
+  @apply flex items-center justify-center mr-2;
+}
+
+.ts-dropdown .expand-toggle svg {
+  @apply w-4 h-4 transition-transform duration-300 ease-in-out;
+  @apply text-gray-600;
+}
+
+.ts-dropdown .expand-toggle.expanded svg {
+  @apply rotate-90;
+}
+
+/* Group content with smooth animations */
+.ts-dropdown .optgroup {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.ts-dropdown .optgroup-content {
+  @apply transition-all duration-300 ease-in-out;
+  @apply overflow-hidden;
+}
+
+.ts-dropdown .optgroup.collapsed .optgroup-content {
+  @apply max-h-0 opacity-0;
+}
+
+.ts-dropdown .optgroup.expanded .optgroup-content {
+  @apply max-h-96 opacity-100;
+}
+
+/* Option items with hierarchical indentation */
+.ts-dropdown .option-item {
+  @apply flex items-center py-2 px-3 cursor-pointer;
+  @apply border-l-2 border-transparent;
+  @apply hover:bg-blue-50 hover:border-l-blue-500;
+  @apply transition-all duration-150 ease-in-out;
+}
+
+.ts-dropdown .option-item.focused {
+  @apply bg-blue-100 border-l-blue-600;
+  @apply ring-2 ring-blue-500 ring-inset;
+}
+
+.ts-dropdown .option-item.selected {
+  @apply bg-blue-200 border-l-blue-700 text-blue-900;
+}
+
+/* Hierarchical indentation based on nesting level */
+.ts-dropdown .option-item[aria-level="1"] { 
+  padding-left: 1rem; 
+}
+.ts-dropdown .option-item[aria-level="2"] { 
+  padding-left: 2rem; 
+}
+.ts-dropdown .option-item[aria-level="3"] { 
+  padding-left: 3rem; 
+}
+.ts-dropdown .option-item[aria-level="4"] { 
+  padding-left: 4rem; 
+}
+.ts-dropdown .option-item[aria-level="5"] { 
+  padding-left: 5rem; 
+}
+
+/* Option content styling */
+.ts-dropdown .option-content {
+  @apply flex items-center w-full;
+}
+
+.ts-dropdown .option-icon {
+  @apply w-4 h-4 mr-2 flex-shrink-0;
+}
+
+.ts-dropdown .option-text {
+  @apply flex-grow text-sm;
+}
+
+.ts-dropdown .option-badge {
+  @apply ml-auto px-2 py-1 bg-gray-200 text-xs rounded;
+  @apply text-gray-600 font-medium;
+}
+
+/* Group selection buttons */
+.ts-dropdown .select-group {
+  @apply text-sm text-blue-600 hover:text-blue-800;
+  @apply px-2 py-1 rounded hover:bg-blue-100;
+  @apply transition-colors duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Group counts */
+.ts-dropdown .group-count {
+  @apply ml-2 text-sm text-gray-500 font-normal;
+}
+
+/* Loading states for dynamic groups */
+.ts-dropdown .group-loading {
+  @apply animate-pulse;
+}
+
+.ts-dropdown .group-loading .optgroup-header {
+  @apply bg-gray-200;
+}
+
+/* Search highlighting */
+.ts-dropdown .search-highlight {
+  @apply bg-yellow-200 font-semibold;
+}
+
+/* No results styling for grouped select */
+.ts-dropdown .grouped-no-results {
+  @apply p-6 text-center text-gray-500;
+}
+
+.ts-dropdown .grouped-no-results .no-results-icon {
+  @apply w-12 h-12 mx-auto mb-3 text-gray-400;
+}
+
+.ts-dropdown .grouped-no-results .no-results-title {
+  @apply text-lg font-medium mb-2;
+}
+
+.ts-dropdown .grouped-no-results .no-results-subtitle {
+  @apply text-sm;
+}
+
+/* Group state indicators */
+.ts-dropdown .optgroup-header .group-indicator {
+  @apply w-2 h-2 rounded-full mr-2;
+}
+
+.ts-dropdown .optgroup-header.has-selection .group-indicator {
+  @apply bg-blue-500;
+}
+
+.ts-dropdown .optgroup-header.partial-selection .group-indicator {
+  @apply bg-yellow-500;
+}
+
+.ts-dropdown .optgroup-header.no-selection .group-indicator {
+  @apply bg-gray-300;
+}
+
+/* Keyboard focus styles */
+.ts-dropdown [role="treeitem"]:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-inset;
+}
+
+/* Multi-select styling for grouped options */
+.ts-wrapper.multi.grouped .ts-control {
+  @apply min-h-[42px] p-2;
+  @apply flex flex-wrap gap-1;
+}
+
+.ts-wrapper.multi.grouped .ts-control .item {
+  @apply inline-flex items-center;
+  @apply bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm;
+  @apply font-medium mr-1 mb-1;
+}
+
+.ts-wrapper.multi.grouped .ts-control .item .remove {
+  @apply ml-2 text-blue-600 hover:text-blue-800;
+  @apply cursor-pointer font-bold opacity-75 hover:opacity-100;
+}
+
+/* Mobile optimizations for grouped select */
+@media (max-width: 640px) {
+  .ts-dropdown .optgroup-header {
+    @apply text-sm py-3 px-2;
+  }
+  
+  .ts-dropdown .option-item {
+    @apply py-3 text-sm;
+  }
+  
+  .ts-dropdown .option-item[aria-level="2"] { 
+    padding-left: 1.5rem; 
+  }
+  .ts-dropdown .option-item[aria-level="3"] { 
+    padding-left: 2rem; 
+  }
+  .ts-dropdown .option-item[aria-level="4"] { 
+    padding-left: 2.5rem; 
+  }
+  
+  .ts-dropdown .select-group {
+    @apply px-1 py-0.5 text-xs;
+  }
+  
+  .ts-dropdown .expand-toggle {
+    @apply p-0.5;
+  }
+  
+  .ts-dropdown .expand-toggle svg {
+    @apply w-3 h-3;
+  }
+}
+
+/* High contrast mode support for groups */
+@media (prefers-contrast: high) {
+  .ts-dropdown .optgroup-header {
+    @apply border-2 border-black bg-white;
+  }
+  
+  .ts-dropdown .option-item {
+    @apply border border-gray-600;
+  }
+  
+  .ts-dropdown .option-item:hover {
+    @apply bg-white border-2 border-black;
+  }
+}
+
+/* Reduced motion support for groups */
+@media (prefers-reduced-motion: reduce) {
+  .ts-dropdown .optgroup-content,
+  .ts-dropdown .expand-toggle svg,
+  .ts-dropdown .option-item {
+    @apply transition-none;
+  }
+}
+
+/* Print styles for grouped select */
+@media print {
+  .ts-dropdown .optgroup-header {
+    @apply bg-white border-black;
+  }
+  
+  .ts-dropdown .option-item {
+    @apply bg-white text-black;
+  }
+}
+
+/* Multi-Select Tags Styles */
+
+/* Tag container styling */
+.ts-wrapper.multi-tags .ts-control {
+  @apply flex flex-wrap gap-1 min-h-[42px] p-2;
+  @apply border-gray-300 rounded-md;
+  @apply focus-within:ring-2 focus-within:ring-blue-500;
+  @apply transition-all duration-200;
+}
+
+/* Individual tag styling with color variants */
+.ts-wrapper.multi-tags .ts-control > .item {
+  @apply inline-flex items-center;
+  @apply rounded-full px-3 py-1;
+  @apply text-sm font-medium;
+  @apply transition-all duration-150;
+  @apply mr-1 mb-1;
+  @apply shadow-sm;
+}
+
+/* Remove button styles with improved accessibility */
+.ts-wrapper.multi-tags .item .remove {
+  @apply ml-2 text-current opacity-75 hover:opacity-100;
+  @apply cursor-pointer font-bold;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-current;
+  @apply rounded transition-opacity duration-150;
+  @apply w-4 h-4 flex items-center justify-center;
+}
+
+.ts-wrapper.multi-tags .item .remove:hover {
+  @apply transform scale-110;
+}
+
+/* Drag handle styling (desktop only) */
+.ts-wrapper.multi-tags .item .drag-handle {
+  @apply cursor-move mr-2 text-current opacity-50 hover:opacity-75;
+  @apply transition-opacity duration-150;
+  @apply select-none;
+}
+
+/* Dragging state */
+.ts-wrapper.multi-tags .item.dragging {
+  @apply opacity-50 shadow-lg transform rotate-2;
+  @apply z-50;
+}
+
+/* Max items indicator */
+.ts-wrapper.multi-tags .ts-control.max-items {
+  @apply border-yellow-500 bg-yellow-50;
+  @apply ring-2 ring-yellow-300;
+}
+
+.ts-wrapper.multi-tags .ts-control.max-items::after {
+  content: '⚠️ Limit reached';
+  @apply absolute -top-6 right-0 text-xs text-yellow-600;
+  @apply bg-yellow-100 px-2 py-1 rounded;
+  @apply border border-yellow-300;
+}
+
+/* Color variants for tags */
+.item-blue {
+  @apply bg-blue-100 text-blue-800 border border-blue-200;
+}
+.item-blue .remove:focus {
+  @apply ring-blue-500;
+}
+
+.item-green {
+  @apply bg-green-100 text-green-800 border border-green-200;
+}
+.item-green .remove:focus {
+  @apply ring-green-500;
+}
+
+.item-orange {
+  @apply bg-orange-100 text-orange-800 border border-orange-200;
+}
+.item-orange .remove:focus {
+  @apply ring-orange-500;
+}
+
+.item-purple {
+  @apply bg-purple-100 text-purple-800 border border-purple-200;
+}
+.item-purple .remove:focus {
+  @apply ring-purple-500;
+}
+
+.item-red {
+  @apply bg-red-100 text-red-800 border border-red-200;
+}
+.item-red .remove:focus {
+  @apply ring-red-500;
+}
+
+.item-cyan {
+  @apply bg-cyan-100 text-cyan-800 border border-cyan-200;
+}
+.item-cyan .remove:focus {
+  @apply ring-cyan-500;
+}
+
+.item-amber {
+  @apply bg-amber-100 text-amber-800 border border-amber-200;
+}
+.item-amber .remove:focus {
+  @apply ring-amber-500;
+}
+
+.item-violet {
+  @apply bg-violet-100 text-violet-800 border border-violet-200;
+}
+.item-violet .remove:focus {
+  @apply ring-violet-500;
+}
+
+.item-gray {
+  @apply bg-gray-100 text-gray-800 border border-gray-200;
+}
+.item-gray .remove:focus {
+  @apply ring-gray-500;
+}
+
+/* Dropdown option styling for multi-select tags */
+.ts-wrapper.multi-tags .ts-dropdown .option {
+  @apply flex items-center py-2 px-3 cursor-pointer;
+  @apply hover:bg-blue-50 transition-colors duration-150;
+}
+
+.ts-wrapper.multi-tags .ts-dropdown .option.selected {
+  @apply bg-blue-100 text-blue-900 font-semibold;
+}
+
+.ts-wrapper.multi-tags .ts-dropdown .option input[type="checkbox"] {
+  @apply mr-2 pointer-events-none;
+  @apply rounded border-gray-300;
+}
+
+.ts-wrapper.multi-tags .ts-dropdown .option .color-indicator {
+  @apply w-3 h-3 rounded-full mr-2 flex-shrink-0;
+}
+
+/* Clear button from plugin styling */
+.ts-wrapper.multi-tags .clear-all-btn {
+  @apply text-xs text-red-600 hover:text-red-800;
+  @apply px-2 py-1 rounded hover:bg-red-50;
+  @apply transition-colors duration-150;
+  @apply focus:outline-none focus:ring-2 focus:ring-red-500;
+}
+
+/* Mobile optimizations for tags */
+@media (max-width: 640px) {
+  .ts-wrapper.multi-tags .ts-control {
+    @apply min-h-[48px]; /* Larger touch targets */
+  }
+  
+  .ts-wrapper.multi-tags .ts-control > .item {
+    @apply text-xs px-2 py-1;
+    @apply min-h-[32px] min-w-[60px];
+  }
+  
+  /* Hide drag handle on mobile */
+  .ts-wrapper.multi-tags.touch-device .item .drag-handle {
+    @apply hidden;
+  }
+  
+  /* Larger remove buttons for touch */
+  .ts-wrapper.multi-tags.touch-device .item .remove {
+    @apply w-6 h-6 ml-1;
+    @apply flex items-center justify-center;
+  }
+  
+  /* Larger tap targets for dropdown options */
+  .ts-wrapper.multi-tags .ts-dropdown .option {
+    @apply py-3 text-sm;
+    @apply min-h-[44px];
+  }
+}
+
+/* Loading state for multi-select tags */
+.ts-wrapper.multi-tags.loading .ts-control {
+  @apply opacity-75 cursor-wait;
+}
+
+.ts-wrapper.multi-tags.loading .ts-control::after {
+  content: '⏳';
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2;
+  @apply text-sm animate-pulse;
+}
+
+/* Focus states for better keyboard navigation */
+.ts-wrapper.multi-tags .item:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-1;
+}
+
+.ts-wrapper.multi-tags .ts-control:focus-within {
+  @apply ring-2 ring-blue-500 border-blue-500;
+}
+
+/* Animation for tag addition */
+@keyframes tagAdd {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ts-wrapper.multi-tags .item.new-item {
+  animation: tagAdd 0.3s ease-out;
+}
+
+/* Animation for tag removal */
+@keyframes tagRemove {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.ts-wrapper.multi-tags .item.removing {
+  animation: tagRemove 0.2s ease-in forwards;
+}
+
+/* High contrast mode support for tags */
+@media (prefers-contrast: high) {
+  .ts-wrapper.multi-tags .ts-control > .item {
+    @apply border-2 border-current;
+  }
+  
+  .ts-wrapper.multi-tags .item .remove {
+    @apply border border-current;
+  }
+  
+  .ts-wrapper.multi-tags .ts-control {
+    @apply border-2 border-black;
+  }
+}
+
+/* Reduced motion support for tags */
+@media (prefers-reduced-motion: reduce) {
+  .ts-wrapper.multi-tags .item,
+  .ts-wrapper.multi-tags .item .remove {
+    @apply transition-none;
+  }
+  
+  .ts-wrapper.multi-tags .item:hover .remove {
+    @apply transform-none;
+  }
+  
+  .ts-wrapper.multi-tags .item.new-item,
+  .ts-wrapper.multi-tags .item.removing {
+    animation: none;
+  }
+}
+
+/* Print styles for multi-select tags */
+@media print {
+  .ts-wrapper.multi-tags .ts-control > .item {
+    @apply bg-white border-2 border-black text-black;
+  }
+  
+  .ts-wrapper.multi-tags .item .remove {
+    @apply hidden; /* Hide remove buttons in print */
+  }
+  
+  .ts-wrapper.multi-tags .item .drag-handle {
+    @apply hidden; /* Hide drag handles in print */
+  }
+}
+
+/* Remote Data Loading Styles */
+
+/* Remote select wrapper */
+.ts-wrapper.remote-select .ts-control {
+  @apply relative;
+}
+
+/* Loading state for dropdown */
+.ts-wrapper.remote-select .ts-dropdown.loading {
+  @apply relative;
+}
+
+.ts-wrapper.remote-select .ts-dropdown.loading::before {
+  content: '';
+  @apply absolute inset-0 bg-white bg-opacity-90 z-10;
+}
+
+/* Loading spinner animation */
+@keyframes remoteSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ts-wrapper.remote-select .loading svg.animate-spin {
+  animation: remoteSpinner 1s linear infinite;
+}
+
+/* Rich option styling for remote data */
+.ts-wrapper.remote-select .ts-dropdown .option {
+  @apply transition-all duration-150 ease-in-out;
+  @apply border-l-2 border-transparent;
+}
+
+.ts-wrapper.remote-select .ts-dropdown .option:hover {
+  @apply bg-gray-50 border-l-blue-500;
+}
+
+.ts-wrapper.remote-select .ts-dropdown .option.selected {
+  @apply bg-blue-50 border-l-blue-600;
+}
+
+/* Cached/offline data indicator */
+.ts-wrapper.remote-select .ts-dropdown .option.cached {
+  @apply bg-yellow-50 border-l-yellow-400;
+}
+
+/* Avatar images in options */
+.ts-wrapper.remote-select .ts-dropdown .option img {
+  @apply flex-shrink-0 object-cover;
+}
+
+/* Line clamp for descriptions */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Error states */
+.ts-wrapper.remote-select.error .ts-control {
+  @apply border-red-300 focus-within:border-red-500 focus-within:ring-red-500;
+}
+
+.ts-wrapper.remote-select .error-state {
+  @apply bg-red-50 border-l-4 border-red-500 p-3;
+}
+
+.ts-wrapper.remote-select .error-state .error-title {
+  @apply text-red-800 font-medium;
+}
+
+.ts-wrapper.remote-select .error-state .error-message {
+  @apply text-red-700 text-sm mt-1;
+}
+
+/* Offline state indicator */
+.ts-wrapper.remote-select.offline .ts-control {
+  @apply border-yellow-300 bg-yellow-50;
+}
+
+.ts-wrapper.remote-select.offline .ts-control::after {
+  content: '📡';
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2;
+  @apply text-yellow-600 text-sm opacity-75;
+}
+
+/* Statistics displays */
+.stats-container {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.stat-card {
+  @apply p-3 rounded-lg border;
+  @apply transition-all duration-200 hover:shadow-md;
+}
+
+.stat-card.api {
+  @apply bg-blue-50 border-blue-200 text-blue-800;
+}
+
+.stat-card.cache {
+  @apply bg-green-50 border-green-200 text-green-800;
+}
+
+.stat-card.connection {
+  @apply bg-gray-50 border-gray-200 text-gray-800;
+}
+
+.stat-card.connection.offline {
+  @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+}
+
+.stat-card.connection.error {
+  @apply bg-red-50 border-red-200 text-red-800;
+}
+
+/* Notification styles (integrated with existing notifications) */
+.notification.remote-success {
+  @apply bg-green-100 border-green-400 text-green-800;
+}
+
+.notification.remote-warning {
+  @apply bg-yellow-100 border-yellow-400 text-yellow-800;
+}
+
+.notification.remote-error {
+  @apply bg-red-100 border-red-400 text-red-800;
+}
+
+.notification.remote-info {
+  @apply bg-blue-100 border-blue-400 text-blue-800;
+}
+
+/* Skeleton loading for options */
+.skeleton-option {
+  @apply animate-pulse;
+}
+
+.skeleton-option .skeleton-avatar {
+  @apply w-8 h-8 bg-gray-300 rounded-full;
+}
+
+.skeleton-option .skeleton-text {
+  @apply h-4 bg-gray-300 rounded;
+}
+
+.skeleton-option .skeleton-description {
+  @apply h-3 bg-gray-200 rounded;
+}
+
+/* Retry button styling */
+.retry-button {
+  @apply inline-flex items-center px-3 py-2 border border-transparent;
+  @apply text-sm leading-4 font-medium rounded-md;
+  @apply text-white bg-blue-600 hover:bg-blue-700;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+  @apply transition-colors duration-200;
+}
+
+.retry-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Connection status indicator */
+.connection-status {
+  @apply inline-flex items-center px-2 py-1 rounded text-xs font-medium;
+}
+
+.connection-status.online {
+  @apply bg-green-100 text-green-800;
+}
+
+.connection-status.offline {
+  @apply bg-red-100 text-red-800;
+}
+
+.connection-status.connecting {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+/* Progress bar for loading */
+.loading-progress {
+  @apply w-full bg-gray-200 rounded-full h-1.5;
+}
+
+.loading-progress-bar {
+  @apply bg-blue-600 h-1.5 rounded-full transition-all duration-300 ease-in-out;
+}
+
+/* Mobile optimizations for remote select */
+@media (max-width: 640px) {
+  .ts-wrapper.remote-select .ts-dropdown .option {
+    @apply py-3 px-3;
+  }
+  
+  .ts-wrapper.remote-select .ts-dropdown .option img {
+    @apply w-6 h-6;
+  }
+  
+  .stats-container {
+    @apply grid-cols-1 gap-2;
+  }
+  
+  .stat-card {
+    @apply p-2 text-sm;
+  }
+}
+
+/* High contrast mode for remote select */
+@media (prefers-contrast: high) {
+  .ts-wrapper.remote-select .ts-dropdown .option {
+    @apply border-2 border-gray-600;
+  }
+  
+  .ts-wrapper.remote-select .ts-dropdown .option:hover {
+    @apply border-black bg-white;
+  }
+  
+  .stat-card {
+    @apply border-2 border-black;
+  }
+}
+
+/* Reduced motion for remote select */
+@media (prefers-reduced-motion: reduce) {
+  .ts-wrapper.remote-select .ts-dropdown .option,
+  .stat-card,
+  .retry-button,
+  .loading-progress-bar {
+    @apply transition-none;
+  }
+  
+  .ts-wrapper.remote-select .loading svg.animate-spin {
+    animation: none;
+  }
+  
+  .skeleton-option {
+    @apply animate-none;
+  }
+}
+
+/* Print styles for remote select */
+@media print {
+  .ts-wrapper.remote-select .ts-dropdown .option img {
+    @apply hidden;
+  }
+  
+  .stats-container {
+    @apply hidden;
+  }
+  
+  .notification {
+    @apply hidden;
+  }
+}
+
+/* Focus management for remote select */
+.ts-wrapper.remote-select:focus-within .ts-control {
+  @apply ring-2 ring-blue-500 ring-offset-1;
+}
+
+.ts-wrapper.remote-select .ts-dropdown .option:focus {
+  @apply outline-none bg-blue-100 border-l-blue-600;
+}
+
+/* Accessibility enhancements */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Tooltip styles for buttons */
+[title] {
+  position: relative;
+}
+
+/* Custom scrollbar for dropdown */
+.ts-wrapper.remote-select .ts-dropdown {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) transparent;
+}
+
+.ts-wrapper.remote-select .ts-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ts-wrapper.remote-select .ts-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ts-wrapper.remote-select .ts-dropdown::-webkit-scrollbar-thumb {
+  background-color: rgb(156 163 175);
+  border-radius: 4px;
+}
+
+.ts-wrapper.remote-select .ts-dropdown::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(107 114 128);
+}
+
+/* Virtual Scrolling Styles */
+
+/* Virtual dropdown container with optimized scrolling */
+.ts-dropdown.virtual-dropdown {
+  @apply relative overflow-hidden;
+  @apply max-h-80; /* Default height for virtual scrolling */
+  will-change: scroll-position;
+}
+
+.ts-dropdown.virtual-dropdown .virtual-scroll-container {
+  @apply relative h-full overflow-y-auto overflow-x-hidden;
+  @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-400;
+  /* Hardware acceleration for smooth scrolling */
+  will-change: scroll-position;
+  transform: translateZ(0);
+}
+
+/* Virtual content container with relative positioning */
+.ts-dropdown.virtual-dropdown .virtual-content {
+  @apply relative;
+  contain: layout style paint;
+}
+
+/* Virtual spacer to maintain scroll area height */
+.ts-dropdown.virtual-dropdown .virtual-spacer {
+  @apply pointer-events-none;
+  contain: strict;
+}
+
+/* Virtual item base styles with absolute positioning */
+.virtual-item {
+  @apply absolute left-0 right-0;
+  @apply cursor-pointer transition-colors duration-150;
+  @apply border-l-2 border-transparent;
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Virtual item hover and focus states */
+.virtual-item:hover {
+  @apply bg-blue-50 border-l-blue-500;
+}
+
+.virtual-item:focus {
+  @apply outline-none bg-blue-100 border-l-blue-600;
+  @apply ring-2 ring-blue-500 ring-inset;
+}
+
+.virtual-item.selected {
+  @apply bg-blue-200 border-l-blue-700 text-blue-900;
+  @apply font-medium;
+}
+
+.virtual-item.active {
+  @apply bg-blue-100 text-blue-900 border-l-blue-600;
+}
+
+/* Virtual option content styling */
+.virtual-item .virtual-option-content {
+  @apply flex items-center w-full p-3;
+}
+
+.virtual-item .virtual-option-avatar {
+  @apply w-8 h-8 rounded mr-3 flex-shrink-0 object-cover;
+  @apply bg-gray-200; /* Fallback for loading images */
+}
+
+.virtual-item .virtual-option-text {
+  @apply flex-grow min-w-0;
+}
+
+.virtual-item .virtual-option-title {
+  @apply font-medium text-gray-900 truncate;
+}
+
+.virtual-item .virtual-option-description {
+  @apply text-sm text-gray-600 truncate;
+}
+
+.virtual-item .virtual-option-badge {
+  @apply ml-auto px-2 py-1 bg-gray-200 text-gray-700;
+  @apply text-xs rounded font-medium flex-shrink-0;
+}
+
+/* Loading indicator for virtual scrolling */
+.virtual-loading {
+  @apply absolute inset-x-0 bottom-0;
+  @apply bg-white border-t border-gray-200;
+  @apply flex items-center justify-center p-4;
+  @apply transition-opacity duration-200;
+}
+
+.virtual-loading.hidden {
+  @apply opacity-0 pointer-events-none;
+}
+
+.virtual-loading .loading-spinner {
+  @apply animate-spin rounded-full h-4 w-4 border-2;
+  @apply border-blue-500 border-t-transparent;
+}
+
+/* Performance monitoring overlay */
+#performance-overlay {
+  @apply z-50 backdrop-blur-sm;
+  @apply font-mono text-xs leading-tight;
+  contain: layout style paint;
+}
+
+#performance-overlay .status-indicator {
+  @apply w-2 h-2 rounded-full mr-2;
+}
+
+#performance-overlay .status-indicator.good {
+  @apply bg-green-400;
+}
+
+#performance-overlay .status-indicator.warning {
+  @apply bg-yellow-400;
+}
+
+#performance-overlay .status-indicator.error {
+  @apply bg-red-400;
+}
+
+/* Performance dashboard styling */
+#performance-dashboard {
+  @apply space-y-4;
+}
+
+#performance-dashboard .perf-metric {
+  @apply font-mono text-sm;
+}
+
+#performance-dashboard .perf-indicator {
+  @apply inline-block w-3 h-3 rounded-full mr-2;
+}
+
+#performance-dashboard .perf-indicator.active {
+  @apply animate-pulse;
+}
+
+/* FPS Chart canvas */
+#fps-chart {
+  @apply bg-gray-50;
+  image-rendering: pixelated; /* Sharp rendering for performance graphs */
+}
+
+/* Memory usage bar */
+#memory-bar {
+  @apply transition-all duration-500 ease-out;
+}
+
+#memory-bar.critical {
+  @apply bg-red-600;
+}
+
+#memory-bar.warning {
+  @apply bg-yellow-500;
+}
+
+#memory-bar.good {
+  @apply bg-green-600;
+}
+
+/* Accessibility panel styling */
+#accessibility-panel {
+  @apply space-y-4;
+}
+
+#accessibility-panel .test-result {
+  @apply font-mono text-sm;
+}
+
+#accessibility-panel .test-result.pass {
+  @apply text-green-600;
+}
+
+#accessibility-panel .test-result.fail {
+  @apply text-red-600;
+}
+
+#accessibility-panel .test-result.pending {
+  @apply text-yellow-600;
+}
+
+/* Mobile optimizations for virtual scrolling */
+@media (max-width: 640px) {
+  .ts-dropdown.virtual-dropdown {
+    @apply max-h-64; /* Smaller height on mobile */
+  }
+  
+  .virtual-item .virtual-option-content {
+    @apply p-4; /* Larger touch targets */
+  }
+  
+  .virtual-item .virtual-option-avatar {
+    @apply w-6 h-6 mr-2; /* Smaller avatars to save space */
+  }
+  
+  .virtual-item .virtual-option-description {
+    @apply hidden; /* Hide descriptions on small screens */
+  }
+  
+  /* Performance overlay positioning for mobile */
+  #performance-overlay {
+    @apply top-2 right-2 left-auto;
+    @apply text-xs p-2;
+  }
+  
+  /* Simplify dashboard on mobile */
+  #performance-dashboard .grid {
+    @apply grid-cols-1 md:grid-cols-2;
+  }
+  
+  #performance-dashboard .fps-chart-container {
+    @apply h-16; /* Smaller chart on mobile */
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .virtual-item {
+    @apply min-h-[44px]; /* WCAG minimum touch target size */
+  }
+  
+  .virtual-item .virtual-option-content {
+    @apply p-4;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .virtual-item:hover {
+    @apply bg-transparent border-l-transparent;
+  }
+  
+  .virtual-item:active {
+    @apply bg-blue-100 border-l-blue-600;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .ts-dropdown.virtual-dropdown {
+    @apply border-2 border-black;
+  }
+  
+  .virtual-item {
+    @apply border border-gray-600;
+  }
+  
+  .virtual-item:hover,
+  .virtual-item:focus {
+    @apply bg-white border-2 border-black;
+  }
+  
+  .virtual-item.selected {
+    @apply bg-black text-white;
+  }
+  
+  #performance-overlay {
+    @apply bg-black text-white border-2 border-white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .virtual-item,
+  .virtual-loading,
+  #memory-bar,
+  #performance-overlay .status-indicator {
+    @apply transition-none;
+  }
+  
+  .virtual-loading .loading-spinner,
+  #performance-dashboard .perf-indicator.active {
+    @apply animate-none;
+  }
+  
+  /* Disable smooth scrolling */
+  .virtual-scroll-container {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles for virtual scrolling */
+@media print {
+  .ts-dropdown.virtual-dropdown {
+    @apply max-h-none overflow-visible;
+  }
+  
+  .virtual-item {
+    @apply relative;
+    @apply bg-white text-black border border-gray-300;
+  }
+  
+  .virtual-item .virtual-option-avatar {
+    @apply hidden; /* Hide images in print */
+  }
+  
+  #performance-overlay,
+  #performance-dashboard,
+  .virtual-loading {
+    @apply hidden;
+  }
+}
+
+/* Focus management and keyboard navigation */
+.ts-wrapper.virtual-scrolling .ts-control:focus {
+  @apply ring-2 ring-blue-500 ring-offset-1;
+}
+
+.virtual-item[role="option"][aria-selected="true"] {
+  @apply bg-blue-200 border-l-blue-700;
+}
+
+.virtual-item[role="option"]:focus {
+  @apply outline-none;
+}
+
+/* ARIA live region for screen readers */
+#virtual-select-announcements {
+  @apply sr-only;
+}
+
+/* Error states for virtual scrolling */
+.virtual-scroll-error {
+  @apply p-6 text-center text-red-600;
+  @apply bg-red-50 border border-red-200 rounded;
+}
+
+.virtual-scroll-error .error-icon {
+  @apply w-12 h-12 mx-auto mb-3 text-red-400;
+}
+
+.virtual-scroll-error .error-title {
+  @apply text-lg font-medium mb-2;
+}
+
+.virtual-scroll-error .error-message {
+  @apply text-sm mb-4;
+}
+
+.virtual-scroll-error .retry-button {
+  @apply bg-red-600 hover:bg-red-700 text-white;
+  @apply px-4 py-2 rounded font-medium;
+  @apply focus:outline-none focus:ring-2 focus:ring-red-500;
+}
+
+/* Empty state for virtual scrolling */
+.virtual-scroll-empty {
+  @apply p-8 text-center text-gray-500;
+}
+
+.virtual-scroll-empty .empty-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-gray-400;
+}
+
+.virtual-scroll-empty .empty-title {
+  @apply text-lg font-medium mb-2;
+}
+
+.virtual-scroll-empty .empty-message {
+  @apply text-sm;
+}
+
+/* Virtual scrolling animations */
+@keyframes virtualItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes virtualItemSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply animations only when not reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .virtual-item.entering {
+    animation: virtualItemSlideIn 0.15s ease-out;
+  }
+  
+  .virtual-item.leaving {
+    animation: virtualItemSlideOut 0.15s ease-in;
+  }
+}
+
+/* Search highlighting in virtual items */
+.virtual-item .search-highlight {
+  @apply bg-yellow-200 font-semibold rounded px-1;
+}
+
+/* Virtual scrolling debug mode */
+.virtual-scroll-debug .virtual-item {
+  @apply border border-red-500 bg-red-50;
+}
+
+.virtual-scroll-debug .virtual-content {
+  @apply border-2 border-blue-500 bg-blue-50;
+}
+
+.virtual-scroll-debug .virtual-spacer {
+  @apply bg-green-200 border border-green-500;
+}
+
+/* Smooth scrolling behavior */
+.virtual-scroll-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+}
+
+/* Progressive enhancement for older browsers */
+@supports not (contain: layout) {
+  .virtual-item {
+    @apply relative; /* Fallback to relative positioning */
+  }
+  
+  .virtual-content {
+    @apply block; /* Fallback layout */
+  }
+}
+
+/* WebKit scrollbar customization for virtual scrolling */
+.virtual-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.virtual-scroll-container::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+.virtual-scroll-container::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+  @apply hover:bg-gray-500;
+}
+
+.virtual-scroll-container::-webkit-scrollbar-thumb:active {
+  @apply bg-gray-600;
+}
+
+/* Firefox scrollbar styling */
+.virtual-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+}
+
+/* Focus trap for virtual scrolling dropdown */
+.ts-dropdown.virtual-dropdown:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Virtual scrolling performance optimizations */
+.virtual-item {
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize repaints during scrolling */
+.virtual-scroll-container {
+  /* Force layer creation */
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Memory efficient images in virtual items */
+.virtual-item .virtual-option-avatar {
+  @apply bg-gray-200; /* Placeholder while loading */
+  image-rendering: optimizeQuality;
+}
+
+.virtual-item .virtual-option-avatar[data-loaded="false"] {
+  @apply animate-pulse;
+}
+
+/* Intersection observer root margin indicator (debug only) */
+.virtual-scroll-debug .intersection-root {
+  @apply border-4 border-purple-500;
+  @apply bg-purple-100 bg-opacity-50;
+}
+
+/* Responsive virtual scrolling heights */
+@media (min-width: 768px) {
+  .ts-dropdown.virtual-dropdown {
+    @apply max-h-96; /* Larger height on desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  .ts-dropdown.virtual-dropdown {
+    @apply max-h-[32rem]; /* Even larger on large screens */
+  }
+}
+
+/* Dark mode support for virtual scrolling */
+@media (prefers-color-scheme: dark) {
+  .ts-dropdown.virtual-dropdown {
+    @apply bg-gray-900 border-gray-700;
+  }
+  
+  .virtual-item {
+    @apply text-gray-100 border-gray-700;
+  }
+  
+  .virtual-item:hover {
+    @apply bg-gray-800 border-l-blue-400;
+  }
+  
+  .virtual-item:focus {
+    @apply bg-gray-700 border-l-blue-500;
+  }
+  
+  .virtual-item.selected {
+    @apply bg-blue-800 border-l-blue-300 text-blue-100;
+  }
+  
+  .virtual-item .virtual-option-title {
+    @apply text-gray-100;
+  }
+  
+  .virtual-item .virtual-option-description {
+    @apply text-gray-400;
+  }
+  
+  .virtual-item .virtual-option-badge {
+    @apply bg-gray-700 text-gray-300;
+  }
+  
+  .virtual-loading {
+    @apply bg-gray-900 border-gray-700;
+  }
+  
+  #performance-overlay {
+    @apply bg-gray-900 text-gray-100;
+  }
+  
+  .virtual-scroll-container::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+  }
+  
+  .virtual-scroll-container::-webkit-scrollbar-thumb {
+    @apply bg-gray-600;
+  }
+  
+  .virtual-scroll-container::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+/* RTL (Right-to-Left) support for virtual scrolling */
+[dir="rtl"] .virtual-item {
+  @apply border-r-2 border-l-0;
+}
+
+[dir="rtl"] .virtual-item:hover,
+[dir="rtl"] .virtual-item:focus {
+  @apply border-r-blue-500 border-l-transparent;
+}
+
+[dir="rtl"] .virtual-item.selected {
+  @apply border-r-blue-700 border-l-transparent;
+}
+
+[dir="rtl"] .virtual-item .virtual-option-avatar {
+  @apply mr-0 ml-3;
+}
+
+[dir="rtl"] .virtual-item .virtual-option-badge {
+  @apply ml-0 mr-auto;
+}
+
+/* Accessibility improvements for virtual scrolling */
+.virtual-item[aria-disabled="true"] {
+  @apply opacity-50 cursor-not-allowed;
+  @apply bg-gray-100 text-gray-500;
+}
+
+.virtual-item[aria-disabled="true"]:hover {
+  @apply bg-gray-100 border-l-transparent;
+}
+
+/* Virtual scrolling loading skeleton */
+.virtual-skeleton {
+  @apply animate-pulse;
+}
+
+.virtual-skeleton .virtual-option-content {
+  @apply py-3 px-3;
+}
+
+.virtual-skeleton .skeleton-avatar {
+  @apply w-8 h-8 bg-gray-300 rounded mr-3;
+}
+
+.virtual-skeleton .skeleton-text {
+  @apply h-4 bg-gray-300 rounded mb-2;
+}
+
+.virtual-skeleton .skeleton-description {
+  @apply h-3 bg-gray-200 rounded w-3/4;
+}
+
+/* Virtual scrolling search indicators */
+.virtual-item .search-match-indicator {
+  @apply absolute right-2 top-1/2 transform -translate-y-1/2;
+  @apply w-2 h-2 bg-yellow-500 rounded-full;
+}
+
+/* Item height measurement helper */
+.virtual-height-measurer {
+  @apply absolute left-0 top-0 opacity-0 pointer-events-none;
+  @apply overflow-hidden;
+  contain: strict;
+}
+
+/* Critical rendering path optimization */
+.virtual-item.critical {
+  contain: layout style;
+}
+
+.virtual-item.non-critical {
+  contain: layout style paint;
+  content-visibility: auto;
+}

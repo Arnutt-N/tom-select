@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tom-Select Basic Example</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+</head>
+<body>
+  <div id="app" class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8">Tom-Select Examples</h1>
+      
+      <!-- Basic Single Select -->
+      <div class="mb-8 bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Basic Single Select</h2>
+        <label for="select-basic" class="block text-sm font-medium text-gray-700 mb-2">
+          Choose your state
+        </label>
+        <select id="select-basic" 
+                aria-label="State selection"
+                aria-describedby="state-description"
+                placeholder="Select a state...">
+          <option value="">Select a state...</option>
+          <option value="CA">California</option>
+          <option value="TX">Texas</option>
+          <option value="NY">New York</option>
+          <option value="FL">Florida</option>
+          <option value="IL">Illinois</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="OH">Ohio</option>
+          <option value="GA">Georgia</option>
+          <option value="NC">North Carolina</option>
+          <option value="MI">Michigan</option>
+        </select>
+        <p id="state-description" class="mt-2 text-sm text-gray-500">
+          Select your state from the dropdown. You can type to search.
+        </p>
+      </div>
+      
+      <!-- Dynamic Option Creation -->
+      <div class="mb-8 bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold">Create Custom Tags</h2>
+          <div class="flex gap-2">
+            <button id="undo-btn" 
+                    class="text-sm px-3 py-1 bg-gray-100 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled
+                    title="Undo last action (Ctrl+Z)">
+              ↶ Undo
+            </button>
+            <button id="redo-btn" 
+                    class="text-sm px-3 py-1 bg-gray-100 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled
+                    title="Redo action (Ctrl+Shift+Z)">
+              ↷ Redo
+            </button>
+            <button id="export-btn" 
+                    class="text-sm px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                    title="Export tags (Ctrl+E)">
+              📤 Export
+            </button>
+            <button id="import-btn" 
+                    class="text-sm px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200"
+                    title="Import tags (Ctrl+I)">
+              📥 Import
+            </button>
+          </div>
+        </div>
+        
+        <label for="select-create" class="block text-sm font-medium text-gray-700 mb-2">
+          Add your skills and expertise
+        </label>
+        <input id="select-create" 
+               aria-label="Skills and expertise tags"
+               aria-describedby="create-description"
+               placeholder="Type to search or create new tags...">
+        
+        <div class="mt-2 flex justify-between text-sm text-gray-600">
+          <span>Press Enter to create new tags</span>
+          <span id="created-count">0 created tags</span>
+        </div>
+        
+        <p id="create-description" class="mt-2 text-sm text-gray-500">
+          Search existing tags or create new ones by typing. Tags are automatically saved and will persist between sessions.
+        </p>
+        
+        <div class="mt-4 p-3 bg-gray-50 rounded text-sm">
+          <p class="font-semibold mb-1">Keyboard Shortcuts:</p>
+          <ul class="space-y-1 text-gray-600">
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Enter</kbd> - Create new tag</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Ctrl+Z</kbd> - Undo last action</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Ctrl+Shift+Z</kbd> - Redo</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Ctrl+E</kbd> - Export tags</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Ctrl+I</kbd> - Import tags</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Grouped Options -->
+      <div class="mb-8 bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold">Hierarchical Grouped Options</h2>
+          <div class="flex gap-2">
+            <button id="expand-all" 
+                    class="text-sm px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                    title="Expand all groups">
+              📂 Expand All
+            </button>
+            <button id="collapse-all" 
+                    class="text-sm px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                    title="Collapse all groups">
+              📁 Collapse All
+            </button>
+          </div>
+        </div>
+        
+        <label for="select-grouped" class="block text-sm font-medium text-gray-700 mb-2">
+          Select your technologies and tools
+        </label>
+        <select id="select-grouped" 
+                multiple
+                aria-label="Technology selection with groups"
+                aria-describedby="grouped-description"
+                placeholder="Choose from organized categories...">
+          
+          <optgroup label="Programming Languages" data-expanded="false">
+            <optgroup label="Frontend Languages" data-level="2">
+              <option value="javascript" data-icon="🟨" data-badge="Popular">JavaScript</option>
+              <option value="typescript" data-icon="🔵" data-badge="Type-Safe">TypeScript</option>
+              <option value="html" data-icon="🧡">HTML</option>
+              <option value="css" data-icon="🎨">CSS</option>
+              <option value="sass" data-icon="💎">Sass/SCSS</option>
+            </optgroup>
+            
+            <optgroup label="Backend Languages" data-level="2">
+              <option value="python" data-icon="🐍" data-badge="Versatile">Python</option>
+              <option value="java" data-icon="☕" data-badge="Enterprise">Java</option>
+              <option value="csharp" data-icon="💜">C#</option>
+              <option value="php" data-icon="🐘">PHP</option>
+              <option value="ruby" data-icon="💎">Ruby</option>
+              <option value="go" data-icon="🐹">Go</option>
+              <option value="rust" data-icon="⚙️">Rust</option>
+            </optgroup>
+            
+            <optgroup label="Mobile Languages" data-level="2">
+              <option value="swift" data-icon="🍎">Swift</option>
+              <option value="kotlin" data-icon="🤖">Kotlin</option>
+              <option value="dart" data-icon="🎯">Dart</option>
+            </optgroup>
+          </optgroup>
+          
+          <optgroup label="Frameworks & Libraries" data-expanded="false">
+            <optgroup label="JavaScript Frameworks" data-level="2">
+              <option value="react" data-icon="⚛️" data-badge="Popular">React</option>
+              <option value="vue" data-icon="💚">Vue.js</option>
+              <option value="angular" data-icon="🅰️">Angular</option>
+              <option value="svelte" data-icon="🧡">Svelte</option>
+              <option value="nextjs" data-icon="▲">Next.js</option>
+              <option value="nuxtjs" data-icon="💚">Nuxt.js</option>
+            </optgroup>
+            
+            <optgroup label="CSS Frameworks" data-level="2">
+              <option value="tailwind" data-icon="💨" data-badge="Utility">Tailwind CSS</option>
+              <option value="bootstrap" data-icon="🅱️">Bootstrap</option>
+              <option value="bulma" data-icon="🌟">Bulma</option>
+              <option value="chakra" data-icon="⚡">Chakra UI</option>
+              <option value="material" data-icon="📐">Material-UI</option>
+            </optgroup>
+            
+            <optgroup label="Backend Frameworks" data-level="2">
+              <option value="express" data-icon="🚂">Express.js</option>
+              <option value="fastify" data-icon="⚡">Fastify</option>
+              <option value="django" data-icon="🐍">Django</option>
+              <option value="flask" data-icon="🌶️">Flask</option>
+              <option value="laravel" data-icon="🎭">Laravel</option>
+              <option value="rails" data-icon="💎">Ruby on Rails</option>
+              <option value="spring" data-icon="🌿">Spring Boot</option>
+            </optgroup>
+          </optgroup>
+          
+          <optgroup label="Development Tools" data-expanded="false">
+            <optgroup label="Version Control" data-level="2">
+              <option value="git" data-icon="📝" data-badge="Essential">Git</option>
+              <option value="github" data-icon="🐙">GitHub</option>
+              <option value="gitlab" data-icon="🦊">GitLab</option>
+              <option value="bitbucket" data-icon="🪣">Bitbucket</option>
+            </optgroup>
+            
+            <optgroup label="Build Tools" data-level="2">
+              <option value="webpack" data-icon="📦">Webpack</option>
+              <option value="vite" data-icon="⚡" data-badge="Fast">Vite</option>
+              <option value="parcel" data-icon="📮">Parcel</option>
+              <option value="rollup" data-icon="🗞️">Rollup</option>
+              <option value="esbuild" data-icon="⚡">ESBuild</option>
+            </optgroup>
+            
+            <optgroup label="Testing Tools" data-level="2">
+              <option value="jest" data-icon="🃏">Jest</option>
+              <option value="cypress" data-icon="🌲">Cypress</option>
+              <option value="playwright" data-icon="🎭">Playwright</option>
+              <option value="vitest" data-icon="⚡">Vitest</option>
+            </optgroup>
+          </optgroup>
+          
+          <optgroup label="DevOps & Infrastructure" data-expanded="false">
+            <optgroup label="Containerization" data-level="2">
+              <option value="docker" data-icon="🐳" data-badge="Popular">Docker</option>
+              <option value="kubernetes" data-icon="☸️">Kubernetes</option>
+              <option value="podman" data-icon="🦭">Podman</option>
+            </optgroup>
+            
+            <optgroup label="Cloud Platforms" data-level="2">
+              <option value="aws" data-icon="☁️" data-badge="Leader">AWS</option>
+              <option value="azure" data-icon="🌐">Microsoft Azure</option>
+              <option value="gcp" data-icon="☁️">Google Cloud</option>
+              <option value="vercel" data-icon="▲">Vercel</option>
+              <option value="netlify" data-icon="🌐">Netlify</option>
+            </optgroup>
+            
+            <optgroup label="CI/CD Tools" data-level="2">
+              <option value="github-actions" data-icon="🤖">GitHub Actions</option>
+              <option value="jenkins" data-icon="👨‍🔧">Jenkins</option>
+              <option value="gitlab-ci" data-icon="🔄">GitLab CI</option>
+              <option value="circleci" data-icon="⭕">CircleCI</option>
+            </optgroup>
+          </optgroup>
+          
+          <optgroup label="Databases" data-expanded="false">
+            <optgroup label="Relational Databases" data-level="2">
+              <option value="postgresql" data-icon="🐘" data-badge="Advanced">PostgreSQL</option>
+              <option value="mysql" data-icon="🐬">MySQL</option>
+              <option value="sqlite" data-icon="🪶">SQLite</option>
+              <option value="mssql" data-icon="🗃️">SQL Server</option>
+            </optgroup>
+            
+            <optgroup label="NoSQL Databases" data-level="2">
+              <option value="mongodb" data-icon="🍃" data-badge="Document">MongoDB</option>
+              <option value="redis" data-icon="🔴">Redis</option>
+              <option value="elasticsearch" data-icon="🔍">Elasticsearch</option>
+              <option value="cassandra" data-icon="🏛️">Cassandra</option>
+            </optgroup>
+          </optgroup>
+        </select>
+        
+        <div class="mt-2 flex justify-between text-sm text-gray-600">
+          <span>Navigate with arrow keys, Space to expand/collapse groups</span>
+          <span id="grouped-count">0 selected</span>
+        </div>
+        
+        <p id="grouped-description" class="mt-2 text-sm text-gray-500">
+          Browse through organized technology categories. Click group headers to expand/collapse sections or use keyboard navigation.
+        </p>
+        
+        <div class="mt-4 p-3 bg-gray-50 rounded text-sm">
+          <p class="font-semibold mb-1">Keyboard Navigation:</p>
+          <ul class="space-y-1 text-gray-600">
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">↑↓</kbd> - Navigate options and groups</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">→</kbd> - Expand group</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">←</kbd> - Collapse group</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Space</kbd> - Toggle group or select option</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Enter</kbd> - Select option</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Ctrl+A</kbd> - Select all in current group</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Multi-Select with Tags -->
+      <div class="mb-8 bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold mb-4">Multi-Select with Tags</h2>
+        <label for="select-tags" class="block text-sm font-medium text-gray-700 mb-2">
+          Select your skills
+        </label>
+        <select id="select-tags" 
+                multiple 
+                aria-label="Skills selection"
+                aria-describedby="tags-description"
+                placeholder="Choose skills...">
+          <option value="js" data-color="blue">JavaScript</option>
+          <option value="py" data-color="green">Python</option>
+          <option value="java" data-color="orange">Java</option>
+          <option value="cpp" data-color="purple">C++</option>
+          <option value="rb" data-color="red">Ruby</option>
+          <option value="go" data-color="cyan">Go</option>
+          <option value="rust" data-color="amber">Rust</option>
+          <option value="ts" data-color="blue">TypeScript</option>
+          <option value="php" data-color="violet">PHP</option>
+          <option value="swift" data-color="orange">Swift</option>
+          <option value="kotlin" data-color="green">Kotlin</option>
+          <option value="dart" data-color="cyan">Dart</option>
+          <option value="csharp" data-color="purple">C#</option>
+          <option value="react" data-color="blue">React</option>
+          <option value="vue" data-color="green">Vue.js</option>
+          <option value="angular" data-color="red">Angular</option>
+          <option value="nodejs" data-color="green">Node.js</option>
+          <option value="docker" data-color="blue">Docker</option>
+          <option value="kubernetes" data-color="cyan">Kubernetes</option>
+          <option value="aws" data-color="orange">AWS</option>
+        </select>
+        <p id="tags-description" class="mt-2 text-sm text-gray-500">
+          Select multiple skills. Use Ctrl+Click for multiple selections. Drag tags to reorder on desktop.
+        </p>
+        <div class="mt-2 flex gap-2">
+          <button id="select-all" class="text-sm text-blue-600 hover:text-blue-800 focus:outline-none focus:underline">
+            Select All
+          </button>
+          <button id="clear-all" class="text-sm text-red-600 hover:text-red-800 focus:outline-none focus:underline">
+            Clear All
+          </button>
+        </div>
+        
+        <div class="mt-4 p-3 bg-gray-50 rounded text-sm">
+          <p class="font-semibold mb-1">Features:</p>
+          <ul class="space-y-1 text-gray-600">
+            <li>• Visual tags with color coding</li>
+            <li>• Click × to remove individual tags</li>
+            <li>• Drag and drop to reorder (desktop)</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Ctrl+A</kbd> - Select all visible</li>
+            <li>• <kbd class="px-1 py-0.5 bg-white border rounded text-xs">Backspace</kbd> - Remove last tag</li>
+            <li>• Maximum 5 items with feedback</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Remote Data Loading -->
+      <div class="mb-8 bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold">Remote Data Loading</h2>
+          <div class="flex gap-2">
+            <button id="reload-btn" 
+                    class="text-sm px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                    title="Reload data">
+              🔄 Reload
+            </button>
+            <button id="stats-btn" 
+                    class="text-sm px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                    title="View statistics">
+              📊 Stats
+            </button>
+            <button id="clear-cache-btn" 
+                    class="text-sm px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200"
+                    title="Clear cache">
+              🗑️ Clear Cache
+            </button>
+          </div>
+        </div>
+        
+        <label for="select-remote" class="block text-sm font-medium text-gray-700 mb-2">
+          Search repositories and technologies
+        </label>
+        <select id="select-remote" 
+                aria-label="Remote data search"
+                aria-describedby="remote-description"
+                placeholder="Type to search remote data...">
+        </select>
+        
+        <div id="remote-description" class="mt-2 text-sm text-gray-500">
+          Search through a remote dataset with caching and offline support. Data is loaded asynchronously as you type.
+        </div>
+        
+        <div id="stats-grid" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm" style="display: none;">
+          <div class="bg-blue-50 p-3 rounded">
+            <div class="font-semibold text-blue-800 mb-1">API Requests</div>
+            <div id="api-stats" class="text-blue-700">
+              <div>Total: <span id="api-requests">0</span></div>
+              <div>Success: <span id="api-success-rate">0%</span></div>
+              <div>Avg Response: <span id="api-avg-time">0ms</span></div>
+              <div>Errors: <span id="api-errors">0</span></div>
+            </div>
+          </div>
+          
+          <div class="bg-green-50 p-3 rounded">
+            <div class="font-semibold text-green-800 mb-1">Cache Performance</div>
+            <div id="cache-stats" class="text-green-700">
+              <div>Hit Rate: <span id="cache-hit-rate">0%</span></div>
+              <div>Size: <span id="cache-size">0</span></div>
+              <div>Memory: <span id="cache-memory">0 KB</span></div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-3 rounded">
+            <div class="font-semibold text-gray-800 mb-1">Connection Status</div>
+            <div id="connection-stats" class="text-gray-700">
+              <div>Status: <span id="connection-status">Online</span></div>
+              <div>Pending: <span id="pending-requests">0</span></div>
+              <div>Fallback: <span id="fallback-items">0</span> items</div>
+            </div>
+          </div>
+          
+          <div class="bg-purple-50 p-3 rounded">
+            <div class="font-semibold text-purple-800 mb-1">Tom-Select Stats</div>
+            <div id="select-stats" class="text-purple-700">
+              <div>Options: <span id="total-options">0</span></div>
+              <div>Selected: <span id="selected-items">0</span></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-4 p-3 bg-gray-50 rounded text-sm">
+          <p class="font-semibold mb-1">Features:</p>
+          <ul class="space-y-1 text-gray-600">
+            <li>• Real-time search with API integration</li>
+            <li>• Intelligent caching with 5-minute TTL</li>
+            <li>• Offline support with fallback data</li>
+            <li>• Request debouncing (300ms) and rate limiting</li>
+            <li>• Error handling with retry mechanisms</li>
+            <li>• Network status detection and notifications</li>
+            <li>• Rich rendering with avatars and metadata</li>
+          </ul>
+        </div>
+        
+        <div class="mt-4 p-3 bg-blue-50 rounded text-sm">
+          <p class="font-semibold mb-1">Try it:</p>
+          <ul class="space-y-1 text-blue-700">
+            <li>• Type "javascript" to see live results</li>
+            <li>• Search twice to see caching in action</li>
+            <li>• Turn off network to test offline mode</li>
+            <li>• Check stats to monitor performance</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Virtual Scrolling with Performance Monitoring -->
+      <div class="mb-8 bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold">Virtual Scrolling Performance</h2>
+          <div class="flex gap-2 flex-wrap">
+            <button id="load-10k-btn" 
+                    class="text-sm px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200"
+                    title="Load 10,000 items">
+              📊 Load 10K
+            </button>
+            <button id="load-50k-btn" 
+                    class="text-sm px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                    title="Load 50,000 items for stress testing">
+              🚀 Load 50K
+            </button>
+            <button id="benchmark-btn" 
+                    class="text-sm px-3 py-1 bg-purple-100 text-purple-700 rounded hover:bg-purple-200"
+                    title="Run performance benchmark">
+              ⚡ Benchmark
+            </button>
+            <button id="accessibility-test-btn" 
+                    class="text-sm px-3 py-1 bg-yellow-100 text-yellow-700 rounded hover:bg-yellow-200"
+                    title="Test accessibility features">
+              ♿ A11Y Test
+            </button>
+            <button id="reset-virtual-btn" 
+                    class="text-sm px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200"
+                    title="Reset and clear data">
+              🔄 Reset
+            </button>
+          </div>
+        </div>
+        
+        <label for="select-virtual" class="block text-sm font-medium text-gray-700 mb-2">
+          High-performance virtual scrolling with 10,000+ items
+        </label>
+        <select id="select-virtual" 
+                multiple
+                aria-label="Virtual scrolling demonstration"
+                aria-describedby="virtual-description"
+                placeholder="Search through massive datasets...">
+        </select>
+        
+        <div class="mt-2 flex justify-between text-sm text-gray-600">
+          <span>Virtual scrolling handles unlimited items smoothly</span>
+          <span id="virtual-count">0 items loaded</span>
+        </div>
+        
+        <div id="virtual-description" class="mt-2 text-sm text-gray-500">
+          Experience smooth scrolling through massive datasets. Virtual scrolling renders only visible items for optimal performance.
+        </div>
+        
+        <!-- Performance Monitoring Dashboard -->
+        <div id="performance-dashboard" class="mt-6 p-4 bg-gray-50 rounded-lg">
+          <h3 class="font-semibold text-lg mb-3 flex items-center">
+            <span class="inline-block w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse" id="perf-indicator"></span>
+            Performance Monitor
+          </h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm mb-4">
+            <!-- FPS and Rendering -->
+            <div class="bg-blue-50 p-3 rounded">
+              <div class="font-semibold text-blue-800 mb-1">Rendering Performance</div>
+              <div class="text-blue-700">
+                <div>FPS: <span id="fps-counter" class="font-mono">60</span></div>
+                <div>Avg Render: <span id="avg-render-time" class="font-mono">0.0ms</span></div>
+                <div>Total Renders: <span id="total-renders" class="font-mono">0</span></div>
+                <div>Dropped Frames: <span id="dropped-frames" class="font-mono">0</span></div>
+              </div>
+            </div>
+            
+            <!-- Memory Usage -->
+            <div class="bg-green-50 p-3 rounded">
+              <div class="font-semibold text-green-800 mb-1">Memory Usage</div>
+              <div class="text-green-700">
+                <div>Total: <span id="total-memory" class="font-mono">0.0 MB</span></div>
+                <div>DOM Cache: <span id="cache-memory" class="font-mono">0.0 MB</span></div>
+                <div>Data: <span id="data-memory" class="font-mono">0.0 MB</span></div>
+                <div class="mt-1">
+                  <div class="bg-green-200 rounded-full h-2">
+                    <div id="memory-bar" class="bg-green-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Virtual Scrolling Stats -->
+            <div class="bg-purple-50 p-3 rounded">
+              <div class="font-semibold text-purple-800 mb-1">Virtual Scrolling</div>
+              <div class="text-purple-700">
+                <div>Total Items: <span id="vs-total-items" class="font-mono">0</span></div>
+                <div>Visible: <span id="vs-visible-items" class="font-mono">0</span></div>
+                <div>Rendered: <span id="vs-rendered-items" class="font-mono">0</span></div>
+                <div>Viewport: <span id="vs-viewport-height" class="font-mono">0px</span></div>
+              </div>
+            </div>
+            
+            <!-- Cache Performance -->
+            <div class="bg-yellow-50 p-3 rounded">
+              <div class="font-semibold text-yellow-800 mb-1">DOM Cache</div>
+              <div class="text-yellow-700">
+                <div>Hit Rate: <span id="cache-hit-rate" class="font-mono">0%</span></div>
+                <div>Pool Size: <span id="cache-pool-size" class="font-mono">0</span></div>
+                <div>Created: <span id="cache-elements-created" class="font-mono">0</span></div>
+                <div>Recycled: <span id="cache-elements-recycled" class="font-mono">0</span></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Scroll Performance Chart -->
+          <div class="bg-white p-3 rounded border mb-4">
+            <h4 class="font-semibold mb-2">Real-time FPS Chart</h4>
+            <div class="relative h-24 bg-gray-100 rounded overflow-hidden">
+              <canvas id="fps-chart" class="w-full h-full"></canvas>
+              <div class="absolute top-1 left-2 text-xs text-gray-600">
+                <div>60 FPS</div>
+                <div class="mt-8">30 FPS</div>
+                <div class="mt-8">0 FPS</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Search Performance -->
+          <div class="bg-white p-3 rounded border mb-4">
+            <h4 class="font-semibold mb-2 flex items-center">
+              Search Performance
+              <span id="search-indicator" class="ml-2 inline-block w-2 h-2 bg-gray-400 rounded-full"></span>
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <div class="text-gray-600">Search Time: <span id="search-time" class="font-mono text-black">0ms</span></div>
+                <div class="text-gray-600">Results: <span id="search-results-count" class="font-mono text-black">0</span></div>
+              </div>
+              <div>
+                <div class="text-gray-600">Index Size: <span id="search-index-size" class="font-mono text-black">0</span></div>
+                <div class="text-gray-600">Index Hits: <span id="search-index-hits" class="font-mono text-black">0</span></div>
+              </div>
+              <div>
+                <div class="text-gray-600">Worker Status: <span id="worker-status" class="font-mono text-black">Ready</span></div>
+                <div class="text-gray-600">Background Tasks: <span id="background-tasks" class="font-mono text-black">0</span></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Performance Controls -->
+          <div class="flex justify-between items-center">
+            <div class="flex gap-2">
+              <label class="inline-flex items-center">
+                <input type="checkbox" id="enable-monitoring" checked class="form-checkbox">
+                <span class="ml-2 text-sm">Enable Monitoring</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="checkbox" id="show-debug" class="form-checkbox">
+                <span class="ml-2 text-sm">Debug Mode</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="checkbox" id="stress-test-mode" class="form-checkbox">
+                <span class="ml-2 text-sm">Stress Test</span>
+              </label>
+            </div>
+            
+            <div class="flex gap-2">
+              <button id="export-perf-data" 
+                      class="text-sm px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                      title="Export performance data">
+                📊 Export Data
+              </button>
+              <button id="reset-perf-stats" 
+                      class="text-sm px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200"
+                      title="Reset statistics">
+                🔄 Reset Stats
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Accessibility Testing Panel -->
+        <div id="accessibility-panel" class="mt-6 p-4 bg-blue-50 rounded-lg" style="display: none;">
+          <h3 class="font-semibold text-lg mb-3">Accessibility Testing</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
+            <div>
+              <h4 class="font-semibold mb-2">Screen Reader Support</h4>
+              <div id="screen-reader-tests" class="space-y-1">
+                <div>ARIA Labels: <span id="aria-test" class="font-mono">Testing...</span></div>
+                <div>Live Regions: <span id="live-region-test" class="font-mono">Testing...</span></div>
+                <div>Focus Management: <span id="focus-test" class="font-mono">Testing...</span></div>
+                <div>Role Attributes: <span id="role-test" class="font-mono">Testing...</span></div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="font-semibold mb-2">Keyboard Navigation</h4>
+              <div id="keyboard-tests" class="space-y-1">
+                <div>Arrow Keys: <span id="arrow-key-test" class="font-mono">Testing...</span></div>
+                <div>Tab Navigation: <span id="tab-test" class="font-mono">Testing...</span></div>
+                <div>Page Up/Down: <span id="page-key-test" class="font-mono">Testing...</span></div>
+                <div>Home/End Keys: <span id="home-end-test" class="font-mono">Testing...</span></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-3 bg-white rounded border">
+            <h4 class="font-semibold mb-2">WCAG 2.1 Compliance Check</h4>
+            <div id="wcag-results" class="text-sm">
+              <div>Contrast Ratio: <span id="contrast-check" class="font-mono">Checking...</span></div>
+              <div>Focus Indicators: <span id="focus-indicator-check" class="font-mono">Checking...</span></div>
+              <div>Semantic Markup: <span id="semantic-check" class="font-mono">Checking...</span></div>
+              <div>Alternative Text: <span id="alt-text-check" class="font-mono">Checking...</span></div>
+            </div>
+          </div>
+          
+          <div class="mt-4 flex justify-between">
+            <button id="run-a11y-tests" 
+                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+              Run Full A11Y Test Suite
+            </button>
+            <button id="close-a11y-panel" 
+                    class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">
+              Close Panel
+            </button>
+          </div>
+        </div>
+        
+        <div class="mt-4 p-3 bg-gray-50 rounded text-sm">
+          <p class="font-semibold mb-1">Virtual Scrolling Features:</p>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 space-y-1 text-gray-600">
+            <li>• Handles 50,000+ items smoothly at 60fps</li>
+            <li>• Memory usage under 100MB guaranteed</li>
+            <li>• DOM element recycling and caching</li>
+            <li>• Background search with Web Workers</li>
+            <li>• Infinite scroll with progressive loading</li>
+            <li>• Touch-optimized for mobile devices</li>
+            <li>• Full keyboard navigation support</li>
+            <li>• Screen reader and accessibility compliant</li>
+            <li>• Real-time performance monitoring</li>
+            <li>• Viewport-based rendering optimization</li>
+            <li>• Intersection Observer for efficiency</li>
+            <li>• Automatic height measurement and caching</li>
+          </ul>
+        </div>
+        
+        <div class="mt-4 p-3 bg-green-50 rounded text-sm">
+          <p class="font-semibold mb-1 text-green-800">Performance Targets:</p>
+          <ul class="space-y-1 text-green-700">
+            <li>• <strong>60 FPS</strong> scrolling performance maintained</li>
+            <li>• <strong>&lt;100MB</strong> memory usage for 50K items</li>
+            <li>• <strong>&lt;16ms</strong> frame budget never exceeded</li>
+            <li>• <strong>&lt;100ms</strong> search response time</li>
+            <li>• <strong>95%+</strong> DOM element cache hit rate</li>
+            <li>• <strong>WCAG 2.1 AA</strong> accessibility compliance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Performance Monitoring Overlay -->
+    <div id="performance-overlay" class="fixed top-4 right-4 bg-black bg-opacity-80 text-white p-3 rounded text-sm font-mono" style="display: none;">
+      <div class="flex items-center mb-2">
+        <span class="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+        Performance Monitor
+      </div>
+      <div>FPS: <span id="overlay-fps">60</span></div>
+      <div>Memory: <span id="overlay-memory">0 MB</span></div>
+      <div>Items: <span id="overlay-items">0</span></div>
+      <div>Rendered: <span id="overlay-rendered">0</span></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

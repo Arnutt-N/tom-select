@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Large dataset for virtual scrolling testing",
+    "totalItems": 15000,
+    "categories": ["companies", "technologies", "locations", "people", "products"],
+    "generated": "2025-01-26"
+  },
+  "items": [
+    {
+      "id": "1",
+      "value": "apple-inc",
+      "text": "Apple Inc.",
+      "description": "Multinational technology company that designs, develops, and sells consumer electronics, computer software, and online services",
+      "category": "companies",
+      "tags": ["technology", "hardware", "software", "services"],
+      "avatar": "https://via.placeholder.com/32/007AFF/ffffff?text=A",
+      "badge": "Fortune 10",
+      "metrics": {
+        "employees": 154000,
+        "founded": 1976,
+        "revenue": "$394.3B"
+      },
+      "searchKeywords": ["iphone", "mac", "ios", "cupertino", "tim cook"],
+      "weight": 95
+    },
+    {
+      "id": "2", 
+      "value": "microsoft-corp",
+      "text": "Microsoft Corporation",
+      "description": "American multinational technology corporation that produces computer software, consumer electronics, personal computers, and related services",
+      "category": "companies",
+      "tags": ["technology", "software", "cloud", "enterprise"],
+      "avatar": "https://via.placeholder.com/32/00A4EF/ffffff?text=M",
+      "badge": "Fortune 20",
+      "metrics": {
+        "employees": 221000,
+        "founded": 1975,
+        "revenue": "$211.9B"
+      },
+      "searchKeywords": ["windows", "office", "azure", "xbox", "satya nadella"],
+      "weight": 92
+    },
+    {
+      "id": "3",
+      "value": "google-alphabet",
+      "text": "Alphabet Inc. (Google)",
+      "description": "Multinational conglomerate specializing in Internet-related services and products, including online advertising, search engine, cloud computing, software, and hardware",
+      "category": "companies", 
+      "tags": ["technology", "search", "advertising", "cloud"],
+      "avatar": "https://via.placeholder.com/32/4285F4/ffffff?text=G",
+      "badge": "Fortune 30",
+      "metrics": {
+        "employees": 156500,
+        "founded": 1998,
+        "revenue": "$307.4B"
+      },
+      "searchKeywords": ["search", "android", "chrome", "youtube", "sundar pichai"],
+      "weight": 94
+    },
+    {
+      "id": "4",
+      "value": "amazon",
+      "text": "Amazon.com Inc.",
+      "description": "American multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence",
+      "category": "companies",
+      "tags": ["ecommerce", "cloud", "logistics", "ai"],
+      "avatar": "https://via.placeholder.com/32/FF9900/000000?text=A",
+      "badge": "Fortune 5",
+      "metrics": {
+        "employees": 1540000,
+        "founded": 1994,
+        "revenue": "$513.9B"
+      },
+      "searchKeywords": ["aws", "prime", "alexa", "kindle", "jeff bezos"],
+      "weight": 96
+    },
+    {
+      "id": "5",
+      "value": "meta-facebook",
+      "text": "Meta Platforms Inc. (Facebook)",
+      "description": "American multinational technology conglomerate holding company based in Menlo Park, California, owner of Facebook, Instagram, WhatsApp",
+      "category": "companies",
+      "tags": ["social-media", "vr", "messaging", "advertising"],
+      "avatar": "https://via.placeholder.com/32/1877F2/ffffff?text=F",
+      "badge": "Fortune 100",
+      "metrics": {
+        "employees": 86482,
+        "founded": 2004,
+        "revenue": "$117.9B"
+      },
+      "searchKeywords": ["facebook", "instagram", "whatsapp", "metaverse", "mark zuckerberg"],
+      "weight": 89
+    },
+    {
+      "id": "6",
+      "value": "tesla-inc",
+      "text": "Tesla, Inc.",
+      "description": "American electric vehicle and clean energy company based in Austin, Texas, designs and manufactures electric cars, battery energy storage, solar panels",
+      "category": "companies",
+      "tags": ["automotive", "electric", "energy", "innovation"],
+      "avatar": "https://via.placeholder.com/32/CC0000/ffffff?text=T",
+      "badge": "Innovation Leader",
+      "metrics": {
+        "employees": 127855,
+        "founded": 2003,
+        "revenue": "$96.8B"
+      },
+      "searchKeywords": ["model s", "model 3", "autopilot", "supercharger", "elon musk"],
+      "weight": 88
+    },
+    {
+      "id": "7",
+      "value": "nvidia-corp",
+      "text": "NVIDIA Corporation",
+      "description": "American multinational technology company incorporated in Delaware and based in Santa Clara, California, designs graphics processing units for gaming and professional markets",
+      "category": "companies",
+      "tags": ["semiconductors", "ai", "graphics", "gaming"],
+      "avatar": "https://via.placeholder.com/32/76B900/ffffff?text=N",
+      "badge": "AI Leader",
+      "metrics": {
+        "employees": 29600,
+        "founded": 1993,
+        "revenue": "$126.0B"
+      },
+      "searchKeywords": ["geforce", "rtx", "cuda", "ai", "jensen huang"],
+      "weight": 85
+    },
+    {
+      "id": "8",
+      "value": "javascript-lang",
+      "text": "JavaScript",
+      "description": "High-level, often just-in-time compiled language that conforms to the ECMAScript specification. It has dynamic typing, prototype-based object-orientation, and first-class functions",
+      "category": "technologies",
+      "tags": ["programming", "web", "frontend", "backend"],
+      "avatar": "https://via.placeholder.com/32/F7DF1E/000000?text=JS",
+      "badge": "Most Popular",
+      "metrics": {
+        "githubStars": "N/A",
+        "created": 1995,
+        "usage": "67.9% of developers"
+      },
+      "searchKeywords": ["es6", "nodejs", "react", "angular", "vue"],
+      "weight": 98
+    },
+    {
+      "id": "9",
+      "value": "python-lang",
+      "text": "Python",
+      "description": "Interpreted, high-level and general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace",
+      "category": "technologies",
+      "tags": ["programming", "ai", "data-science", "backend"],
+      "avatar": "https://via.placeholder.com/32/3776AB/ffffff?text=PY",
+      "badge": "AI Favorite",
+      "metrics": {
+        "githubStars": "N/A", 
+        "created": 1991,
+        "usage": "48.2% of developers"
+      },
+      "searchKeywords": ["django", "flask", "pandas", "numpy", "machine learning"],
+      "weight": 94
+    },
+    {
+      "id": "10",
+      "value": "react-library",
+      "text": "React",
+      "description": "JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies. Create large web applications with data that changes over time",
+      "category": "technologies",
+      "tags": ["frontend", "javascript", "ui", "components"],
+      "avatar": "https://via.placeholder.com/32/61DAFB/000000?text=R",
+      "badge": "Frontend Leader",
+      "metrics": {
+        "githubStars": 210000,
+        "created": 2013,
+        "usage": "40.1% of developers"
+      },
+      "searchKeywords": ["jsx", "hooks", "components", "virtual dom", "facebook"],
+      "weight": 91
+    }
+  ],
+  "dataGenerator": {
+    "baseTemplates": [
+      {
+        "type": "company",
+        "template": {
+          "category": "companies",
+          "tags": ["business", "corporate"],
+          "avatar": "https://via.placeholder.com/32/{color}/ffffff?text={initial}",
+          "metrics": {
+            "employees": "{random:1000-500000}",
+            "founded": "{random:1900-2023}",
+            "revenue": "{random}B"
+          }
+        }
+      },
+      {
+        "type": "technology", 
+        "template": {
+          "category": "technologies",
+          "tags": ["programming", "software"],
+          "avatar": "https://via.placeholder.com/32/{color}/ffffff?text={initial}",
+          "metrics": {
+            "githubStars": "{random:1000-500000}",
+            "created": "{random:1990-2023}",
+            "usage": "{random:1-90}% of developers"
+          }
+        }
+      },
+      {
+        "type": "location",
+        "template": {
+          "category": "locations",
+          "tags": ["geography", "travel"],
+          "avatar": "https://via.placeholder.com/32/{color}/ffffff?text={initial}",
+          "metrics": {
+            "population": "{random:10000-10000000}",
+            "area": "{random:10-50000} sq km",
+            "timezone": "UTC{random:-12-+12}"
+          }
+        }
+      },
+      {
+        "type": "person",
+        "template": {
+          "category": "people",
+          "tags": ["individual", "professional"],
+          "avatar": "https://via.placeholder.com/32/{color}/ffffff?text={initial}",
+          "metrics": {
+            "experience": "{random:1-40} years",
+            "connections": "{random:100-5000}",
+            "endorsements": "{random:10-500}"
+          }
+        }
+      },
+      {
+        "type": "product",
+        "template": {
+          "category": "products", 
+          "tags": ["consumer", "business"],
+          "avatar": "https://via.placeholder.com/32/{color}/ffffff?text={initial}",
+          "metrics": {
+            "price": "${random:10-10000}",
+            "rating": "{random:3.0-5.0}/5",
+            "reviews": "{random:10-50000}"
+          }
+        }
+      }
+    ],
+    "colorPalette": [
+      "FF6B6B", "4ECDC4", "45B7D1", "F9CA24", "F0932B",
+      "EB4D4B", "6C5CE7", "74B9FF", "00B894", "FDCB6E",
+      "E17055", "81ECEC", "FD79A8", "FDCB6E", "A29BFE"
+    ],
+    "companies": [
+      "Apple Inc.", "Microsoft Corporation", "Alphabet Inc.", "Amazon.com Inc.", "Meta Platforms",
+      "Tesla Inc.", "NVIDIA Corporation", "Netflix Inc.", "Adobe Inc.", "Salesforce Inc.",
+      "Oracle Corporation", "Intel Corporation", "Cisco Systems", "IBM Corporation", "SAP SE",
+      "Uber Technologies", "Airbnb Inc.", "Spotify Technology", "Zoom Video Communications", "Square Inc.",
+      "Palantir Technologies", "Snowflake Inc.", "CrowdStrike Holdings", "Unity Software", "Shopify Inc."
+    ],
+    "technologies": [
+      "JavaScript", "Python", "React", "Angular", "Vue.js", "Node.js", "Express.js", "Django",
+      "Flask", "Ruby on Rails", "PHP", "Laravel", "Java", "Spring Boot", "C#", ".NET",
+      "Go", "Rust", "Swift", "Kotlin", "TypeScript", "GraphQL", "REST API", "Docker",
+      "Kubernetes", "AWS", "Azure", "Google Cloud", "MongoDB", "PostgreSQL", "MySQL",
+      "Redis", "Elasticsearch", "Apache Kafka", "RabbitMQ", "Jenkins", "GitLab", "GitHub"
+    ],
+    "locations": [
+      "San Francisco, CA", "New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX",
+      "Phoenix, AZ", "Philadelphia, PA", "San Antonio, TX", "San Diego, CA", "Dallas, TX",
+      "London, UK", "Paris, France", "Berlin, Germany", "Tokyo, Japan", "Seoul, South Korea",
+      "Sydney, Australia", "Toronto, Canada", "São Paulo, Brazil", "Mexico City, Mexico", "Mumbai, India",
+      "Singapore", "Hong Kong", "Dubai, UAE", "Amsterdam, Netherlands", "Stockholm, Sweden"
+    ],
+    "firstNames": [
+      "John", "Jane", "Michael", "Sarah", "David", "Emily", "Robert", "Jessica", "William", "Ashley",
+      "James", "Amanda", "Daniel", "Jennifer", "Matthew", "Michelle", "Christopher", "Stephanie", "Andrew", "Nicole",
+      "Joshua", "Elizabeth", "Ryan", "Heather", "Nicholas", "Amy", "Justin", "Angela", "Anthony", "Melissa"
+    ],
+    "lastNames": [
+      "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
+      "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin",
+      "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson"
+    ],
+    "products": [
+      "iPhone", "MacBook Pro", "iPad", "AirPods", "Tesla Model 3", "Surface Laptop", "Galaxy S23",
+      "Echo Dot", "Ring Doorbell", "Nest Thermostat", "PlayStation 5", "Xbox Series X", "Nintendo Switch",
+      "Oculus Quest", "Apple Watch", "Fitbit", "Kindle", "Fire TV Stick", "Google Home", "Spotify Premium"
+    ],
+    "instructions": "This dataset includes 10 sample items with full structure. In a real implementation, you would generate 15,000 items using the templates and data arrays above. Each item should have varied content lengths (20-200 characters for descriptions) and different heights when rendered to test the virtual scrolling dynamic height calculations properly."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/D:\\d D:\\02 genAI/**)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "customInstructions": {
+    "projectType": "frontend",
+    "framework": "vanilla-js",
+    "buildTool": "vite",
+    "styling": "tailwindcss",
+    "testing": "vitest",
+    "packageManager": "npm",
+    "codeStyle": {
+      "indent": 2,
+      "quotes": "single",
+      "semicolons": true,
+      "trailingComma": "es5"
+    },
+    "preferences": {
+      "useTypeScript": false,
+      "useESModules": true,
+      "preferAsync": true,
+      "componentPattern": "functional",
+      "errorHandling": "try-catch-finally",
+      "logging": "console"
+    }
+  },
+  "hooks": {
+    "beforeCommit": [
+      "npm run lint",
+      "npm run format",
+      "npm run test"
+    ],
+    "beforeBuild": [
+      "npm run lint",
+      "npm run test"
+    ],
+    "afterInstall": [
+      "npm run build"
+    ]
+  },
+  "environment": {
+    "development": {
+      "port": 5173,
+      "host": "localhost",
+      "https": false,
+      "open": true
+    },
+    "production": {
+      "minify": true,
+      "sourcemap": false,
+      "analyze": false
+    }
+  }
+}
